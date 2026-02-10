@@ -4,7 +4,7 @@ h1 {  color: #03264F; font-weight: bold;}
 h3 { color: #03264F; font-weight: normal;}
 img { max-width: 50em; width: 100%; display: block}
 td { padding: 0.5em 0.5em; }
-#content50 { max-width: 50em; margin:0 auto; padding: 1rem; }
+#content50 { max-width: 55em; margin:0 auto; padding: 1rem; }
 #navbar {
     background-color: ghostwhite; 
     align-items:center; 
