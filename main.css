@@ -14,7 +14,7 @@ td { padding: 0.5em 0.5em; }
     justify-content: space-between;
 }
 #navbar a {text-decoration:none}
-#logo { display: flex; align-items:center; padding-right: 3em }
+/* #logo { display: flex; align-items:center; padding-right: 3em } */
 /* #logo img { width: 5rem; } */
 /* #logotext { margin: 0 1rem;} */
 /* #logotext h1, h3 {margin-block-start: 0; margin-block-end: 0;} */
