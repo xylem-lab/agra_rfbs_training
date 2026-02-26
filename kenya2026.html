@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Kenya RFBS Training 2026 | Xylem Lab</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Design Tokens ── */
+    :root {
+      --brown:        #2E170E;
+      --brown-mid:    #5C3D27;
+      --cream:        #EFE7DA;
+      --cream-light:  #F7F2EC;
+      --white:        #FFFFFF;
+      --lime:         #CDDC3C;
+      --lime-dark:    #A8B830;
+      --coral:        #D13C3A;
+      --coral-dark:   #A82E2C;
+      --green:        #64A635;
+      --gray:         #8A7A6E;
+      --border:       #E4D9CE;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      color: var(--brown);
+      background: var(--cream-light);
+      line-height: 1.65;
+    }
+
+    /* ── NAVBAR ── */
+    #navbar {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--brown);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 2rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+    }
+    #navbar a { text-decoration: none; }
+    #logo img { max-height: 2.5em; width: auto; display: block; filter: brightness(1.05); }
+
+    .nav-links { display: flex; gap: 0.125rem; list-style: none; }
+    .nav-links a {
+      color: rgba(239,231,218,0.85);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.5rem 0.875rem;
+      border-radius: 3px;
+      transition: background 0.18s, color 0.18s;
+    }
+    .nav-links a:hover { background: var(--lime); color: var(--brown); }
+
+    /* ── HERO ── */
+    #hero {
+      background:
+        linear-gradient(to bottom, rgba(46,23,14,0.40) 0%, rgba(46,23,14,0.55) 50%, rgba(46,23,14,0.85) 100%),
+        url('assets/kenya_farmers.jpg') center 30% / cover no-repeat;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    /* lime accent stripe */
+    #hero::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0;
+      width: 5px;
+      height: 100%;
+      background: var(--lime);
+      z-index: 2;
+    }
+    /* lime bottom edge accent */
+    #hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(to right, var(--lime), transparent 60%);
+    }
+
+    .hero-inner {
+      max-width: 54rem;
+      margin: 0 auto;
+      padding: 5rem 2rem 4.5rem 3.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .hero-inner { padding: 3.5rem 1.25rem 3rem 2rem; }
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--lime);
+      color: var(--brown);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: 2px;
+      margin-bottom: 1.25rem;
+    }
+
+    #hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: rgba(239,231,218,0.8);
+      font-weight: 400;
+    }
+    .hero-meta-item::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--lime);
+      flex-shrink: 0;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.03em;
+      padding: 0.65rem 1.25rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.18s, transform 0.15s, box-shadow 0.18s;
+      white-space: nowrap;
+    }
+    .btn-coral  { background: var(--coral);  color: var(--white); }
+    .btn-coral:hover  { background: var(--coral-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(209,60,58,0.3); }
+    .btn-lime   { background: var(--lime);   color: var(--brown); }
+    .btn-lime:hover   { background: var(--lime-dark);  transform: translateY(-1px); }
+    .btn-ghost  { background: transparent; color: rgba(239,231,218,0.85); border: 1.5px solid rgba(239,231,218,0.6); }
+    .btn-ghost:hover  { background: rgba(239,231,218,0.08); border-color: rgba(239,231,218,0.8); }
+    .btn-outline { background: transparent; color: var(--brown); border: 1.5px solid var(--border); }
+    .btn-outline:hover { border-color: var(--coral); color: var(--coral); }
+
+    /* ── QUICK NAV STRIP ── */
+    #quicknav {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      overflow-x: auto;
+      padding: 0 1.5rem;
+    }
+    .qnav-link {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--gray);
+      text-decoration: none;
+      padding: 0.875rem 1.125rem;
+      border-bottom: 2.5px solid transparent;
+      white-space: nowrap;
+      transition: color 0.18s, border-color 0.18s;
+    }
+    .qnav-link:hover { color: var(--coral); border-bottom-color: var(--coral); }
+
+    /* ── MAIN LAYOUT ── */
+    #content {
+      max-width: 54rem;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+    }
+
+    .section { margin-bottom: 4.5rem; }
+
+    /* ── SECTION HEADERS ── */
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 0.6rem;
+    }
+    .section-tag::before {
+      content: '';
+      display: block;
+      width: 1.5rem;
+      height: 2px;
+      background: var(--coral);
+      border-radius: 1px;
+    }
+
+    h2.sec-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--brown);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+
+    h3.sub-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--brown);
+      letter-spacing: 0.02em;
+      margin-top: 2rem;
+      margin-bottom: 0.875rem;
+    }
+
+    p { color: var(--brown-mid); margin-bottom: 1rem; }
+
+    /* ── CARD: ABOUT ── */
+    .about-card {
+      background: var(--white);
+      border-radius: 8px;
+      border-left: 4px solid var(--lime);
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .about-card p { margin: 0; color: var(--brown-mid); font-size: 1.0rem; line-height: 1.75; }
+
+    /* ── TEAM GRID ── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+      gap: 0.875rem;
+      margin-top: 0.5rem;
+    }
+    .team-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.125rem 1.25rem;
+      transition: border-color 0.18s, transform 0.18s;
+    }
+    .team-card:hover { border-color: var(--lime); transform: translateY(-2px); }
+    .team-card .role {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 0.3rem;
+    }
+    .team-card .name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--brown);
+      line-height: 1.35;
+    }
+    .team-card .affil {
+      font-size: 0.78rem;
+      color: var(--gray);
+      margin-top: 0.2rem;
+    }
+
+    /* ── PARTNERS ── */
+    .partners-row {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      padding: 1.375rem 1.75rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-top: 0.5rem;
+    }
+    .partners-row img {
+      max-height: 3.25em;
+      width: auto;
+      display: block;
+      opacity: 0.8;
+      transition: opacity 0.18s;
+    }
+    .partners-row img:hover { opacity: 1; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(to right, var(--lime), transparent);
+      margin: 0 0 4.5rem;
+    }
+
+    /* ── SCHEDULE ── */
+    .schedule-frame {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--white);
+    }
+    .schedule-frame iframe {
+      display: block;
+      width: 100%;
+      height: 620px;
+      border: none;
+    }
+
+    /* ── GEE BUTTON ── */
+    .gee-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--lime);
+      color: var(--brown);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.125rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.18s, transform 0.15s;
+      margin-bottom: 2rem;
+    }
+    .gee-btn:hover { background: var(--lime-dark); transform: translateY(-1px); }
+
+    /* ── NUMBERED STEPS ── */
+    .step-list { list-style: none; }
+    .step-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.375rem;
+    }
+    .step-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2rem;
+      height: 2rem;
+      background: var(--lime);
+      color: var(--brown);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      border-radius: 4px;
+      margin-top: 0.1rem;
+      flex-shrink: 0;
+    }
+    .step-content h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--brown);
+      margin-bottom: 0.4rem;
+    }
+    .step-content ul { list-style: none; padding: 0; }
+    .step-content ul li {
+      font-size: 0.875rem;
+      color: var(--brown-mid);
+      padding: 0.175rem 0 0.175rem 1rem;
+      position: relative;
+    }
+    .step-content ul li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: var(--coral);
+      font-weight: 700;
+    }
+
+    /* ── CODE BLOCKS ── */
+    .code-group { margin-bottom: 1.375rem; }
+    .code-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--brown-mid);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    pre.code-block {
+      background: var(--brown);
+      color: var(--lime);
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      font-size: 0.78rem;
+      line-height: 1.75;
+      padding: 1.125rem 1.375rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    /* ── HELMETS GRID ── */
+    .helmets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+      gap: 0.875rem;
+      margin-top: 0.5rem;
+    }
+    .helmets-card {
+      display: block;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.375rem;
+      text-decoration: none;
+      color: var(--brown);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.18s, transform 0.18s;
+    }
+    .helmets-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 3px;
+      background: var(--lime);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+      transform-origin: left;
+    }
+    .helmets-card:hover { border-color: var(--lime); transform: translateY(-2px); }
+    .helmets-card:hover::after { transform: scaleX(1); }
+    .helmets-card .step-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 0.5rem;
+    }
+    .helmets-card .card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--brown);
+    }
+    .helmets-card .card-arrow {
+      font-size: 1rem;
+      color: var(--coral);
+      margin-top: 0.625rem;
+      display: block;
+    }
+
+    /* ── FOOTER ── */
+    #footer {
+      background: var(--brown);
+      color: var(--cream);
+      text-align: center;
+      padding: 1.75rem 2rem;
+      font-size: 0.82rem;
+      opacity: 0.95;
+    }
+    #footer a { color: var(--lime); text-decoration: none; }
+    #footer a:hover { text-decoration: underline; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      #navbar { padding: 0.75rem 1.25rem; }
+      .nav-links a { padding: 0.5rem 0.625rem; font-size: 0.75rem; }
+      #hero { padding: 3.5rem 1.25rem 3rem; }
+      #content { padding: 2.5rem 1.25rem 4rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav id="navbar">
+    <a href="https://xylem-lab.github.io/agra/">
+      <div id="logo">
+        <img src="assets/XylemLab_logo_white.png" alt="Xylem Lab">
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="https://xylem-lab.github.io/agra/">Home</a></li>
+      <li><a href="https://xylem-lab.github.io/agra/#team">Team</a></li>
+      <li><a href="https://xylem-lab.github.io/agra/#institute">The Xylem Institute</a></li>
+      <li><a href="https://xylem-lab.github.io/agra/#research">Research</a></li>
+      <li><a href="https://xylem-lab.github.io/agra/#media">Media</a></li>
+      <li><a href="https://xylem-lab.github.io/agra/#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">RFBS Training &mdash; Nairobi, Kenya</div>
+      <h1>Kenya Crop Yield<br>Forecast Training 2026</h1>
+      <div class="hero-meta">
+        <div class="hero-meta-item">March 2&ndash;6, 2026</div>
+        <div class="hero-meta-item">Nairobi, Kenya</div>
+        <div class="hero-meta-item">East Africa RFBS Initiative</div>
+      </div>
+      <div class="hero-ctas">
+        <a href="https://forms.gle/QN8XrRbnKTH2Rrfv5" class="btn btn-coral">Pre-training Survey &rarr;</a>
+        <a href="https://forms.gle/mnSomiYFRMDCWogV9" class="btn btn-ghost">Post-training Survey &rarr;</a>
+        <a href="#schedule" class="btn btn-lime">View Schedule</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── QUICK NAV ── -->
+  <div id="quicknav">
+    <a href="#about"    class="qnav-link">About</a>
+    <a href="#schedule" class="qnav-link">Schedule</a>
+    <a href="#project"  class="qnav-link">Crop Yield Forecast</a>
+    <a href="#helmets"  class="qnav-link">Helmets Labeling Crops</a>
+  </div>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main id="content">
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="section-tag">About the Project</div>
+      <h2 class="sec-title">Regional Food Balance Sheet</h2>
+
+      <div class="about-card">
+        <p>The Regional Food Balance Sheet (RFBS) project aims to revolutionize agricultural monitoring across East Africa by integrating Earth observation (EO) data with multiple yield forecasts. Through the collaborative development of standardized, semi-automated models, the project generates foundational datasets for Maize, Rice, and Beans to address critical data gaps in regional food security. This training focuses on knowledge transfer and capacity building for national partners to co-produce accurate yield forecasts within their respective countries.</p>
+      </div>
+
+      <h3 class="sub-title">Research Team</h3>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="role">Principal Investigator</div>
+          <div class="name">Catherine Nakalembe</div>
+          <div class="affil">University of Maryland</div>
+        </div>
+        <div class="team-card">
+          <div class="role">Research Team</div>
+          <div class="name">Diana Frimpong</div>
+          <div class="affil">UMD</div>
+        </div>
+        <div class="team-card">
+          <div class="role">Research Team</div>
+          <div class="name">Monica Adjei</div>
+          <div class="affil">UMD</div>
+        </div>
+        <div class="team-card">
+          <div class="role">Research Team</div>
+          <div class="name">Matthew Olawale Oke</div>
+          <div class="affil">UMD</div>
+        </div>
+        <div class="team-card">
+          <div class="role">Research Team</div>
+          <div class="name">Pradeep Kumar Yellapu</div>
+          <div class="affil">UMD</div>
+        </div>
+        <div class="team-card">
+          <div class="role">Research Team</div>
+          <div class="name">Umesh Kumar Adari</div>
+          <div class="affil">UMD</div>
+        </div>
+      </div>
+
+      <h3 class="sub-title">Partners</h3>
+      <div class="partners-row">
+        <img src="assets/AGRA_Banner.png" alt="AGRA">
+        <img src="assets/umd-logo.png"    alt="University of Maryland">
+        <img src="assets/XylemLab_logo.png" alt="Xylem Lab">
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- SCHEDULE -->
+    <section id="schedule" class="section">
+      <div class="section-tag">March 2&ndash;6, 2026</div>
+      <h2 class="sec-title">Training Schedule</h2>
+      <div class="schedule-frame">
+        <iframe
+          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6GW8Qx6GrqzSepIzwyurReGR_TYqbbW5igTugJEKRtk6aYWHp8z4m8rLE-PXlbIOUxKEowPtI_2lG/pubhtml?gid=1687680449&amp;single=true&amp;widget=true&amp;headers=false"
+          title="Training Schedule">
+        </iframe>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CROPLAND MAPPING PROJECT -->
+    <section id="project" class="section">
+      <div class="section-tag">Technical Module</div>
+      <h2 class="sec-title">Cropland Mapping</h2>
+
+      <a href="https://code.earthengine.google.com/?accept_repo=users/izvonkov/crop-mapping-senegal" class="gee-btn">
+        &#8599; Google Earth Engine Repository
+      </a>
+
+      <h3 class="sub-title">Presentation Outline</h3>
+      <ol class="step-list">
+        <li class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>Understand crops within the area of interest</h4>
+            <ul>
+              <li>Overview of region (geography, location, population)</li>
+              <li>Climatology (climate zones, precipitation patterns)</li>
+              <li>Physical characteristics (soils, elevation)</li>
+              <li>Socioeconomic factors (economics, agriculture, food security, staple foods)</li>
+              <li>Crop dynamics (challenges in crop production, crop calendars)</li>
+            </ul>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>Analysis of two existing maps</h4>
+            <ul>
+              <li>Visual Assessment [scripts: 1_Worldcover_cropland, 2_visualizing_all_maps]</li>
+              <li>Accuracy Assessment [script: 3_Worldcover_cropland_accuracy]</li>
+            </ul>
+          </div>
+        </li>
+        <li class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>Create cropland map for the region</h4>
+            <ul>
+              <li>Overview of the mapping approach</li>
+              <li>Datasets used (satellite imagery [script: 4_Sentinel2], ground truth data)</li>
+              <li>Models and algorithms employed</li>
+              <li>Visual Assessment [script: 5_classification]</li>
+              <li>Accuracy Assessment [script: 3_Worldcover_cropland_accuracy]</li>
+              <li>Conclusion (key findings, future directions and recommendations)</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+
+      <h3 class="sub-title">Regions of Interest — GEE Boundary Code</h3>
+
+      <div class="code-group">
+        <div class="code-label">Group 1 - River Valley &amp; Ferlo</div>
+        <pre class="code-block">var AEZ = ee.FeatureCollection("users/izvonkov/Senegal/ZEF_AgroEcoZones")
+
+function getAOIFromAEZ(zoneList){
+  return AEZ.filter(ee.Filter.inList('Zone', ee.List(zoneList)))
+}
+
+var roi = getAOIFromAEZ(["Senegal River Valley", "Ferlo"])
+Map.addLayer(roi, {}, "River Valley and Ferlo")</pre>
+      </div>
+
+      <div class="code-group">
+        <div class="code-label">Group 2 - Niayes &amp; Groundnut Basin</div>
+        <pre class="code-block">var AEZ = ee.FeatureCollection("users/izvonkov/Senegal/ZEF_AgroEcoZones")
+
+function getAOIFromAEZ(zoneList){
+  return AEZ.filter(ee.Filter.inList('Zone', ee.List(zoneList)))
+}
+
+var roi = getAOIFromAEZ(["Niayes", "Groundnut Basin"])
+Map.addLayer(roi, {}, "Niayes and Groundnut Basin")</pre>
+      </div>
+
+      <div class="code-group">
+        <div class="code-label">Group 3 - Casamance &amp; Eastern Senegal</div>
+        <pre class="code-block">var AEZ = ee.FeatureCollection("users/izvonkov/Senegal/ZEF_AgroEcoZones")
+
+function getAOIFromAEZ(zoneList){
+  return AEZ.filter(ee.Filter.inList('Zone', ee.List(zoneList)))
+}
+
+var roi = getAOIFromAEZ(["Casamance", "Eastern Senegal"])
+Map.addLayer(roi, {}, "Casamance and Eastern")</pre>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- HELMETS -->
+    <section id="helmets" class="section">
+      <div class="section-tag">Field Module</div>
+      <h2 class="sec-title">Helmets Labeling Crops</h2>
+      <div class="helmets-grid">
+        <a href="https://nasaharvest.github.io/helmets" class="helmets-card">
+          <div class="step-badge">Step 01</div>
+          <div class="card-title">Data Collection</div>
+          <span class="card-arrow">&rarr;</span>
+        </a>
+        <a href="https://github.com/nasaharvest/street2sat/blob/main/gcp/instructions-for-uploading.md" class="helmets-card">
+          <div class="step-badge">Step 02</div>
+          <div class="card-title">Data Upload</div>
+          <span class="card-arrow">&rarr;</span>
+        </a>
+        <a href="https://colab.research.google.com/github/nasaharvest/street2sat/blob/gopro2crop/notebooks/GoPro2CropKMZ.ipynb" class="helmets-card">
+          <div class="step-badge">Step 03</div>
+          <div class="card-title">Data Processing</div>
+          <span class="card-arrow">&rarr;</span>
+        </a>
+        <a href="https://docs.google.com/document/d/1OCF2gpCQQbZP-y6xcTbKE2OzhkxMtyaJi8wiWi8jfzs/edit?usp=sharing" class="helmets-card">
+          <div class="step-badge">Step 04</div>
+          <div class="card-title">Quality Assessment</div>
+          <span class="card-arrow">&rarr;</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer id="footer">
+    <p>Kenya RFBS Training 2026 &nbsp;&middot;&nbsp;
+      <a href="https://xylem-lab.github.io/agra/">Xylem Lab</a>
+      &nbsp;&middot;&nbsp; University of Maryland
+    </p>
+  </footer>
+
+</body>
+</html>
