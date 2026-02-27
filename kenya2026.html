@@ -484,6 +484,71 @@
       display: block;
     }
 
+    /* ── DAY CARDS ── */
+    .day-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    .day-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: border-color 0.18s, transform 0.18s;
+    }
+    .day-card:hover { border-color: var(--lime); transform: translateY(-2px); }
+    .day-card-header {
+      padding: 0.875rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--cream-light);
+    }
+    .day-badge {
+      background: var(--lime);
+      color: var(--brown);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .day-badge.coral { background: var(--coral); color: var(--white); }
+    .day-theme {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--brown);
+      line-height: 1.2;
+    }
+    .day-body { padding: 0.75rem 1.25rem 1rem; }
+    .session-list { list-style: none; padding: 0; }
+    .session-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.75rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #f0ebe4;
+      font-size: 0.845rem;
+    }
+    .session-item:last-child { border-bottom: none; }
+    .session-name { color: var(--brown); font-weight: 500; }
+    .session-speaker {
+      font-size: 0.72rem;
+      color: var(--gray);
+      white-space: nowrap;
+      font-style: italic;
+    }
+    .session-item.break .session-name { color: var(--gray); font-style: italic; font-weight: 400; }
+
     /* ── FOOTER ── */
     #footer {
       background: var(--brown);
@@ -546,7 +611,7 @@
   <div id="quicknav">
     <a href="#about"    class="qnav-link">About</a>
     <a href="#schedule" class="qnav-link">Schedule</a>
-    <a href="#project"  class="qnav-link">Crop Yield Forecast</a>
+    <a href="#project"  class="qnav-link">Program Outline</a>
     <a href="#helmets"  class="qnav-link">Helmets Labeling Crops</a>
   </div>
 
@@ -620,92 +685,145 @@
 
     <div class="divider"></div>
 
-    <!-- CROPLAND MAPPING PROJECT -->
+    <!-- PROGRAM OUTLINE -->
     <section id="project" class="section">
-      <div class="section-tag">Technical Module</div>
-      <h2 class="sec-title">Cropland Mapping</h2>
+      <div class="section-tag">March 3&ndash;6, 2026</div>
+      <h2 class="sec-title">Program Outline</h2>
 
-      <a href="https://code.earthengine.google.com/?accept_repo=users/izvonkov/crop-mapping-senegal" class="gee-btn">
-        &#8599; Google Earth Engine Repository
-      </a>
+      <div class="day-grid">
 
-      <h3 class="sub-title">Presentation Outline</h3>
-      <ol class="step-list">
-        <li class="step-item">
-          <div class="step-num">1</div>
-          <div class="step-content">
-            <h4>Understand crops within the area of interest</h4>
-            <ul>
-              <li>Overview of region (geography, location, population)</li>
-              <li>Climatology (climate zones, precipitation patterns)</li>
-              <li>Physical characteristics (soils, elevation)</li>
-              <li>Socioeconomic factors (economics, agriculture, food security, staple foods)</li>
-              <li>Crop dynamics (challenges in crop production, crop calendars)</li>
+        <!-- TUESDAY -->
+        <div class="day-card">
+          <div class="day-card-header">
+            <div class="day-badge">Tuesday</div>
+            <div class="day-theme">YieldWatch &amp; Contextualize</div>
+          </div>
+          <div class="day-body">
+            <ul class="session-list">
+              <li class="session-item">
+                <span class="session-name">Introductions &amp; Pre-training Survey</span>
+                <span class="session-speaker">Everyone</span>
+              </li>
+              <li class="session-item">
+                <span class="session-name">Training Goals &amp; RFBS Overview</span>
+                <span class="session-speaker">Catherine, COMESA</span>
+              </li>
+              <li class="session-item">
+                <span class="session-name">Yield &amp; Production Estimation with EO</span>
+                <span class="session-speaker">Catherine</span>
+              </li>
+              <li class="session-item break">
+                <span class="session-name">Lunch Break</span>
+              </li>
+              <li class="session-item">
+                <span class="session-name">YieldWatch: EO Feature Extraction &amp; ML Pipeline</span>
+                <span class="session-speaker">Umesh</span>
+              </li>
+              <li class="session-item">
+                <span class="session-name">Model Inference &amp; Yield Prediction Output</span>
+                <span class="session-speaker">Umesh</span>
+              </li>
+              <li class="session-item">
+                <span class="session-name">Data Discussion &amp; Q&amp;A</span>
+                <span class="session-speaker">All</span>
+              </li>
             </ul>
           </div>
-        </li>
-        <li class="step-item">
-          <div class="step-num">2</div>
-          <div class="step-content">
-            <h4>Analysis of two existing maps</h4>
-            <ul>
-              <li>Visual Assessment [scripts: 1_Worldcover_cropland, 2_visualizing_all_maps]</li>
-              <li>Accuracy Assessment [script: 3_Worldcover_cropland_accuracy]</li>
+        </div>
+
+        <!-- WEDNESDAY -->
+        <div class="day-card">
+          <div class="day-card-header">
+            <div class="day-badge">Wednesday</div>
+            <div class="day-theme">Xylem-Autopilot</div>
+          </div>
+          <div class="day-body">
+            <ul class="session-list">
+              <li class="session-item">
+                <span class="session-name">Recap &amp; RFBS Country Status Review</span>
+                <span class="session-speaker">All</span>
+              </li>
+              <li class="session-item">
+                <span class="session-name">CSVs &rarr; Rasters: GEE Export Process</span>
+                <span class="session-speaker">Pradeep</span>
+              </li>
+              <li class="session-item">
+                <span class="session-name">QGIS Styling &amp; Map Preparation</span>
+                <span class="session-speaker">Pradeep</span>
+              </li>
+              <li class="session-item break">
+                <span class="session-name">Lunch Break</span>
+              </li>
+              <li class="session-item">
+                <span class="session-name">Introducing Xylem-Autopilot &amp; Live Demo</span>
+                <span class="session-speaker">Pradeep</span>
+              </li>
+              <li class="session-item">
+                <span class="session-name">Hands-On Practice &amp; Discussion</span>
+                <span class="session-speaker">All</span>
+              </li>
             </ul>
           </div>
-        </li>
-        <li class="step-item">
-          <div class="step-num">3</div>
-          <div class="step-content">
-            <h4>Create cropland map for the region</h4>
-            <ul>
-              <li>Overview of the mapping approach</li>
-              <li>Datasets used (satellite imagery [script: 4_Sentinel2], ground truth data)</li>
-              <li>Models and algorithms employed</li>
-              <li>Visual Assessment [script: 5_classification]</li>
-              <li>Accuracy Assessment [script: 3_Worldcover_cropland_accuracy]</li>
-              <li>Conclusion (key findings, future directions and recommendations)</li>
+        </div>
+
+        <!-- THURSDAY -->
+        <div class="day-card">
+          <div class="day-card-header">
+            <div class="day-badge coral">Thursday</div>
+            <div class="day-theme">Practice</div>
+          </div>
+          <div class="day-body">
+            <ul class="session-list">
+              <li class="session-item">
+                <span class="session-name">Recap of Day 2</span>
+                <span class="session-speaker">All</span>
+              </li>
+              <li class="session-item">
+                <span class="session-name">Helmets Labeling Crops &mdash; Presentation</span>
+                <span class="session-speaker">Diana</span>
+              </li>
+              <li class="session-item">
+                <span class="session-name">GoPro Demo &amp; Data Collection Guide</span>
+                <span class="session-speaker">Diana</span>
+              </li>
+              <li class="session-item break">
+                <span class="session-name">Lunch Break</span>
+              </li>
+              <li class="session-item">
+                <span class="session-name">Helmets Hands-On Exercise &amp; Notebook</span>
+                <span class="session-speaker">Diana</span>
+              </li>
+              <li class="session-item">
+                <span class="session-name">Post-training Survey &amp; Visit to AGRA</span>
+                <span class="session-speaker">All</span>
+              </li>
             </ul>
           </div>
-        </li>
-      </ol>
+        </div>
 
-      <h3 class="sub-title">Regions of Interest &mdash; GEE Boundary Code</h3>
+        <!-- FRIDAY -->
+        <div class="day-card">
+          <div class="day-card-header">
+            <div class="day-badge coral">Friday</div>
+            <div class="day-theme">Inspire</div>
+          </div>
+          <div class="day-body">
+            <ul class="session-list">
+              <li class="session-item">
+                <span class="session-name">Reflections &amp; Key Takeaways</span>
+                <span class="session-speaker">All</span>
+              </li>
+              <li class="session-item">
+                <span class="session-name">Next Steps &amp; Country Action Plans</span>
+                <span class="session-speaker">COMESA / AGRA</span>
+              </li>
+              <li class="session-item">
+                <span class="session-name">Departure</span>
+              </li>
+            </ul>
+          </div>
+        </div>
 
-      <div class="code-group">
-        <div class="code-label">Group 1 &mdash; River Valley &amp; Ferlo</div>
-        <pre class="code-block">var AEZ = ee.FeatureCollection("users/izvonkov/Senegal/ZEF_AgroEcoZones")
-
-function getAOIFromAEZ(zoneList){
-  return AEZ.filter(ee.Filter.inList('Zone', ee.List(zoneList)))
-}
-
-var roi = getAOIFromAEZ(["Senegal River Valley", "Ferlo"])
-Map.addLayer(roi, {}, "River Valley and Ferlo")</pre>
-      </div>
-
-      <div class="code-group">
-        <div class="code-label">Group 2 &mdash; Niayes &amp; Groundnut Basin</div>
-        <pre class="code-block">var AEZ = ee.FeatureCollection("users/izvonkov/Senegal/ZEF_AgroEcoZones")
-
-function getAOIFromAEZ(zoneList){
-  return AEZ.filter(ee.Filter.inList('Zone', ee.List(zoneList)))
-}
-
-var roi = getAOIFromAEZ(["Niayes", "Groundnut Basin"])
-Map.addLayer(roi, {}, "Niayes and Groundnut Basin")</pre>
-      </div>
-
-      <div class="code-group">
-        <div class="code-label">Group 3 &mdash; Casamance &amp; Eastern Senegal</div>
-        <pre class="code-block">var AEZ = ee.FeatureCollection("users/izvonkov/Senegal/ZEF_AgroEcoZones")
-
-function getAOIFromAEZ(zoneList){
-  return AEZ.filter(ee.Filter.inList('Zone', ee.List(zoneList)))
-}
-
-var roi = getAOIFromAEZ(["Casamance", "Eastern Senegal"])
-Map.addLayer(roi, {}, "Casamance and Eastern")</pre>
       </div>
     </section>
 
