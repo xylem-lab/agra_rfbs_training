@@ -789,7 +789,7 @@
           <div class="learn-num">1</div>
           <div class="learn-text">
             <div class="learn-title">Crop Yield Forecasting with EO</div>
-            <div class="learn-desc">How satellite data — NDVI, rainfall, temperature — is used to predict maize yields across East Africa.</div>
+            <div class="learn-desc">How satellite datasuch as NDVI, rainfall, temperature,is used to predict maize yields across East Africa.</div>
           </div>
         </div>
         <div class="learn-card">
@@ -803,7 +803,7 @@
           <div class="learn-num">3</div>
           <div class="learn-text">
             <div class="learn-title">Yield Raster Map Generation</div>
-            <div class="learn-desc">Convert yield prediction CSVs into georeferenced raster maps using Google Earth Engine — both yield and anomaly layers.</div>
+            <div class="learn-desc">Convert yield prediction CSVs into georeferenced raster maps using Google Earth Engine,both yield and anomaly layers.</div>
           </div>
         </div>
         <div class="learn-card">
@@ -817,14 +817,14 @@
           <div class="learn-num">5</div>
           <div class="learn-text">
             <div class="learn-title">Xylem-Autopilot Bulletin Pipeline</div>
-            <div class="learn-desc">Use the automated pipeline to generate RFBS bulletins — from raw data to AI-written narratives and final reports.</div>
+            <div class="learn-desc">Use the automated pipeline to generate RFBS bulletins,from raw data to AI-written narratives and final reports.</div>
           </div>
         </div>
         <div class="learn-card">
           <div class="learn-num">6</div>
           <div class="learn-text">
             <div class="learn-title">Helmets Crop Data Collection</div>
-            <div class="learn-desc">Collect and process field crop type data points using GoPro cameras — from raw photos to georeferenced crop labels.</div>
+            <div class="learn-desc">Collect and process field crop type data points using GoPro cameras,from raw photos to georeferenced crop labels.</div>
           </div>
         </div>
       </div>
@@ -847,10 +847,10 @@
             <span class="prereq-tag required">Required</span>
           </div>
           <div class="prereq-body">
-            <p>Almost everything in this training runs through Google — Colab notebooks, Earth Engine, and your exported map files all live in Google Drive. You need a Google account before anything else.</p>
+            <p>Almost everything in this training runs through Google - Colab notebooks, Earth Engine, and your exported map files all live in Google Drive. You need a Google account before anything else.</p>
             <ol class="prereq-steps">
               <li>Go to <a href="https://accounts.google.com/signup" target="_blank">accounts.google.com/signup</a> and create a free Google account if you don't already have one.</li>
-              <li>Sign in and open <a href="https://drive.google.com" target="_blank">drive.google.com</a> — make sure you have at least 2 GB of free space for exported raster files.</li>
+              <li>Sign in and open <a href="https://drive.google.com" target="_blank">drive.google.com</a> - make sure you have at least 2 GB of free space for exported raster files.</li>
             </ol>
             <div class="prereq-tip">💡 Use a personal Gmail if possible. Institutional Google accounts sometimes block Earth Engine access.</div>
           </div>
@@ -870,7 +870,7 @@
               <li>Sign in with your Google account, then click <strong>Register a Noncommercial or Commercial Cloud project</strong>.</li>
               <li>Choose <strong>Unpaid usage → Academia or Research</strong> as your project type.</li>
               <li>Fill in your institution (University of Maryland or your national agency) and describe your purpose as <em>"Agricultural monitoring and food security assessment."</em></li>
-              <li>Click <strong>Submit</strong>. Check your email — approval is usually instant. You'll get a confirmation from Google.</li>
+              <li>Click <strong>Submit</strong>. Check your email,approval is usually instant. You'll get a confirmation from Google.</li>
             </ol>
             <div class="prereq-tip">💡 After registering, go to <a href="https://code.earthengine.google.com" target="_blank">code.earthengine.google.com</a> and confirm you can open the Code Editor. If it loads a map, you're good to go.</div>
           </div>
@@ -891,7 +891,7 @@
               <li>Enter a project name like <strong>rfbs-training-yourname</strong> (use lowercase and hyphens, no spaces). Click <strong>Create</strong> and wait about 15 seconds.</li>
               <li>Make sure your new project is selected in the dropdown at the top.</li>
               <li>Go to <a href="https://console.cloud.google.com/apis/library/earthengine.googleapis.com" target="_blank">this link</a> to open the Earth Engine API page, then click <strong>Enable</strong>.</li>
-              <li>Copy your <strong>Project ID</strong> exactly as shown — you will paste it into the first cell of the training notebook.</li>
+              <li>Copy your <strong>Project ID</strong> exactly as shown, you will paste it into the first cell of the training notebook.</li>
             </ol>
             <div class="prereq-tip">💡 Your Project ID may look slightly different from your project name (e.g. <em>rfbs-training-yourname-123456</em>). Copy the full ID, not just the name you typed.</div>
           </div>
@@ -905,10 +905,10 @@
             <span class="prereq-tag required">Required</span>
           </div>
           <div class="prereq-body">
-            <p>QGIS is the free mapping software we use to style and finalize yield maps before they go into the bulletin. Download and install it before arriving — the installer can be large (500 MB+) so don't leave it for the day of the training.</p>
+            <p>QGIS is the free mapping software we use to style and finalize yield maps before they go into the bulletin. Download and install it before arriving, the installer can be large (500 MB+) so don't leave it for the day of the training.</p>
             <ol class="prereq-steps">
               <li>Go to <a href="https://qgis.org/en/site/forusers/download.html" target="_blank">qgis.org → Download</a>.</li>
-              <li>Choose the <strong>Long Term Release (LTR)</strong> version — it's the most stable. As of 2026 that is version 3.34 or later.</li>
+              <li>Choose the <strong>Long Term Release (LTR)</strong> version, it's the most stable. As of 2026 that is version 3.34 or later.</li>
               <li>Download the installer for your operating system (Windows, Mac, or Linux) and run it. Accept all default options.</li>
               <li>Open QGIS after installation and confirm it launches correctly. You should see the main map canvas with an empty project.</li>
             </ol>
@@ -924,11 +924,11 @@
             <span class="prereq-tag required">Required</span>
           </div>
           <div class="prereq-body">
-            <p>All notebooks run in the browser. Chrome works best with Google Colab and Earth Engine — other browsers may have display issues.</p>
+            <p>All notebooks run in the browser. Chrome works best with Google Colab and Earth Engine, other browsers may have display issues.</p>
             <ol class="prereq-steps">
               <li>Download and install <a href="https://www.google.com/chrome/" target="_blank">Google Chrome</a> if you don't already have it.</li>
               <li>Make sure Chrome is signed into the same Google account you used for GEE registration.</li>
-              <li>Bring your laptop fully charged. A power adapter is strongly recommended — Colab sessions can run for several hours.</li>
+              <li>Bring your laptop fully charged. A power adapter is strongly recommended, Colab sessions can run for several hours.</li>
             </ol>
           </div>
         </div>
