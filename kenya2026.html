@@ -856,44 +856,104 @@
           </div>
         </div>
 
-        <!-- 2. GEE Account -->
+        <!-- 2. GEE Account + Cloud Project + Registration -->
         <div class="prereq-card">
           <div class="prereq-header">
             <div class="prereq-num">2</div>
-            <div class="prereq-title">Google Earth Engine Account</div>
+            <div class="prereq-title">Google Earth Engine — Cloud Project, API &amp; Registration</div>
             <span class="prereq-tag required">Required</span>
           </div>
           <div class="prereq-body">
-            <p>Google Earth Engine (GEE) is the cloud platform we use to process satellite imagery and export yield maps. Registration is free for research use and usually approved within minutes.</p>
+            <p>Earth Engine requires two things working together: a <strong>Google Cloud Project</strong> (your billing/API container) and an <strong>Earth Engine registration</strong> (grants you access to the GEE compute environment). Do these in order.</p>
+
+            <p style="font-weight:700;margin-top:1rem;margin-bottom:0.4rem;">Part A — Create a Cloud Project &amp; Enable the API</p>
             <ol class="prereq-steps">
-              <li>Go to <a href="https://earthengine.google.com/" target="_blank">earthengine.google.com</a> and click <strong>Get Started</strong> in the top right.</li>
-              <li>Sign in with your Google account, then click <strong>Register a Noncommercial or Commercial Cloud project</strong>.</li>
-              <li>Choose <strong>Unpaid usage → Academia or Research</strong> as your project type.</li>
-              <li>Fill in your institution (University of Maryland or your national agency) and describe your purpose as <em>"Agricultural monitoring and food security assessment."</em></li>
-              <li>Click <strong>Submit</strong>. Check your email,approval is usually instant. You'll get a confirmation from Google.</li>
+              <li>Go to <a href="https://console.cloud.google.com/" target="_blank">console.cloud.google.com</a> → sign in → click the project dropdown at the very top → <strong>New Project</strong>.</li>
+              <li>Name it <strong>rfbs-yourname</strong> (lowercase, hyphens only, no spaces). Click <strong>Create</strong> and wait ~15 seconds until the notification says it's ready.</li>
+              <li>Make sure the new project is selected in the top dropdown, then open the <a href="https://console.cloud.google.com/apis/library/earthengine.googleapis.com" target="_blank">Earth Engine API page</a> and click <strong>Enable</strong>.</li>
+              <li>Copy your <strong>Project ID</strong> from the Cloud Console home page — it may look like <em>rfbs-yourname-123456</em>. You'll paste this into the Colab notebook's first cell where it says <code>ee.Initialize(project='...')</code>.</li>
             </ol>
-            <div class="prereq-tip">💡 After registering, go to <a href="https://code.earthengine.google.com" target="_blank">code.earthengine.google.com</a> and confirm you can open the Code Editor. If it loads a map, you're good to go.</div>
+
+            <p style="font-weight:700;margin-top:1.25rem;margin-bottom:0.4rem;">Part B — Register for Earth Engine Access</p>
+            <ol class="prereq-steps">
+              <li>Go to <a href="https://code.earthengine.google.com/register" target="_blank">code.earthengine.google.com/register</a> → sign in with the same Google account → click <strong>Register a Noncommercial or Commercial Cloud project</strong> → choose <strong>Unpaid usage</strong>.</li>
+              <li>On the registration form, fill in the answers exactly as shown below:</li>
+            </ol>
+
+            <table style="width:100%;border-collapse:collapse;font-size:0.8rem;margin:0.75rem 0 1rem;border:1px solid var(--border);border-radius:6px;overflow:hidden;">
+              <thead>
+                <tr style="background:var(--brown);color:var(--white);">
+                  <th style="padding:8px 12px;text-align:left;font-weight:600;">Registration Question</th>
+                  <th style="padding:8px 12px;text-align:left;font-weight:600;">Answer to Select / Type</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background:var(--white);"><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Which of the following best describes you or your organization?</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">Public or private academic institution (including faculty, staff, students)</td></tr>
+                <tr style="background:#faf8f5;"><td style="padding:7px 12px;border-bottom:1px solid var(--border);">What is the name of your academic institution?</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">Your university or national research agency</td></tr>
+                <tr style="background:var(--white);"><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Will you receive payment from commercial entities for applications or data created using Earth Engine?</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">No</td></tr>
+                <tr style="background:#faf8f5;"><td style="padding:7px 12px;border-bottom:1px solid var(--border);">How would you describe your use of Earth Engine?</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">Scientific research</td></tr>
+                <tr style="background:var(--white);"><td style="padding:7px 12px;border-bottom:1px solid var(--border);">What is your research question?</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">Estimating yield and production for African countries</td></tr>
+                <tr style="background:#faf8f5;"><td style="padding:7px 12px;border-bottom:1px solid var(--border);">What is the geographic scope of your study?</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">Global</td></tr>
+                <tr style="background:var(--white);"><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Have you previously published work on this topic that used Earth Engine?</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">No</td></tr>
+                <tr style="background:#faf8f5;"><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Does your work with Earth Engine fall into any of these categories?</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">Adaptation</td></tr>
+                <tr style="background:var(--white);"><td style="padding:7px 12px;">Will you use Earth Engine for any of the following?</td><td style="padding:7px 12px;font-weight:600;">Agriculture</td></tr>
+              </tbody>
+            </table>
+
+            <ol class="prereq-steps">
+              <li>Click <strong>Submit</strong>. Approval is usually instant. Open <a href="https://code.earthengine.google.com" target="_blank">code.earthengine.google.com</a> — if a map loads, you're registered and ready.</li>
+            </ol>
+
+            <div class="prereq-tip" style="background:#e8f4e8;border-left:3px solid #4CAF50;margin-top:0.75rem;">
+              ✅ <strong>Why Noncommercial?</strong> — Free, no billing required, sufficient for all training and research workflows. The correct tier for university use.<br><br>
+              🏢 <strong>Why Commercial later?</strong> — Once Xylem-Autopilot moves to full operational production at AGRA, a Commercial project unlocks higher compute quotas, priority API access, SLA guarantees, and the ability to build fee-for-service data products. You cannot switch back from Commercial to Noncommercial, so stay Noncommercial for now.
+            </div>
           </div>
         </div>
 
-        <!-- 3. GEE Cloud Project -->
+        <!-- 3. agra_rag on Drive -->
         <div class="prereq-card">
           <div class="prereq-header">
             <div class="prereq-num">3</div>
-            <div class="prereq-title">Google Cloud Project &amp; Earth Engine API</div>
-            <span class="prereq-tag required">Required</span>
+            <div class="prereq-title">Add the agra_rag Folder to Your Google Drive</div>
+            <span class="prereq-tag required">Required for Automated Pipeline</span>
           </div>
           <div class="prereq-body">
-            <p>The Colab notebooks we use need a Cloud Project ID to authenticate with Earth Engine. Think of it as a unique project name that links your Google account to the GEE service.</p>
+            <p>The Xylem-Autopilot notebook reads and writes to a folder called <strong>agra_rag</strong> in your Google Drive. You need your own writable copy — not just a view-only shortcut — so the notebook can save your yield maps and CSVs into it during the training session.</p>
+
+            <p style="font-weight:700;margin-top:1rem;margin-bottom:0.4rem;">Adding the folder</p>
             <ol class="prereq-steps">
-              <li>Go to <a href="https://console.cloud.google.com/" target="_blank">console.cloud.google.com</a> and sign in with the same Google account.</li>
-              <li>Click the project dropdown at the very top of the page, then click <strong>New Project</strong>.</li>
-              <li>Enter a project name like <strong>rfbs-training-yourname</strong> (use lowercase and hyphens, no spaces). Click <strong>Create</strong> and wait about 15 seconds.</li>
-              <li>Make sure your new project is selected in the dropdown at the top.</li>
-              <li>Go to <a href="https://console.cloud.google.com/apis/library/earthengine.googleapis.com" target="_blank">this link</a> to open the Earth Engine API page, then click <strong>Enable</strong>.</li>
-              <li>Copy your <strong>Project ID</strong> exactly as shown, you will paste it into the first cell of the training notebook.</li>
+              <li>Open the agra_rag shared link provided by your trainer. It will open Google Drive showing the agra_rag folder.</li>
+              <li>At the top of the page click <strong>Add shortcut to Drive</strong> → select <strong>My Drive</strong> → click <strong>Add shortcut</strong>. This makes it accessible inside Colab as <code style="font-size:0.78rem;">/content/drive/MyDrive/agra_rag</code>.</li>
+              <li><strong>Verify write access:</strong> Open the agra_rag folder in Drive and try creating a blank Google Doc inside it. If it lets you create, you have Editor access. If it says "View only", ask your trainer to re-share the folder with <em>Editor</em> permissions.</li>
             </ol>
-            <div class="prereq-tip">💡 Your Project ID may look slightly different from your project name (e.g. <em>rfbs-training-yourname-123456</em>). Copy the full ID, not just the name you typed.</div>
+
+            <p style="font-weight:700;margin-top:1rem;margin-bottom:0.4rem;">After adding — verify these key sub-folders exist</p>
+            <table style="width:100%;border-collapse:collapse;font-size:0.8rem;margin:0.5rem 0 1rem;border:1px solid var(--border);border-radius:6px;overflow:hidden;">
+              <thead>
+                <tr style="background:var(--brown);color:var(--white);">
+                  <th style="padding:7px 12px;text-align:left;">Folder path inside agra_rag</th>
+                  <th style="padding:7px 12px;text-align:left;">Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background:var(--white);"><td style="padding:6px 12px;border-bottom:1px solid var(--border);font-family:monospace;font-size:0.77rem;">data/current_data/</td><td style="padding:6px 12px;border-bottom:1px solid var(--border);">Your ML output CSVs are automatically copied here by Cell 4</td></tr>
+                <tr style="background:#faf8f5;"><td style="padding:6px 12px;border-bottom:1px solid var(--border);font-family:monospace;font-size:0.77rem;">data/maps/</td><td style="padding:6px 12px;border-bottom:1px solid var(--border);">Generated yield and anomaly PNGs are copied here</td></tr>
+                <tr style="background:var(--white);"><td style="padding:6px 12px;border-bottom:1px solid var(--border);font-family:monospace;font-size:0.77rem;">data/historical_pdfs/</td><td style="padding:6px 12px;border-bottom:1px solid var(--border);">Pre-loaded past AGRA bulletins — knowledge base for the AI writer</td></tr>
+                <tr style="background:#faf8f5;"><td style="padding:6px 12px;border-bottom:1px solid var(--border);font-family:monospace;font-size:0.77rem;">embeddings/</td><td style="padding:6px 12px;border-bottom:1px solid var(--border);">Pre-built FAISS vector index — do not delete or move</td></tr>
+                <tr style="background:var(--white);"><td style="padding:6px 12px;font-family:monospace;font-size:0.77rem;">output/</td><td style="padding:6px 12px;">bulletin.html and production charts are saved here after Cell 4</td></tr>
+              </tbody>
+            </table>
+
+            <p style="font-weight:700;margin-bottom:0.4rem;">In Colab — confirm the path is reachable</p>
+            <ol class="prereq-steps">
+              <li>After mounting Drive in Cell 1, run this quick check in a new cell:<br><code style="font-size:0.78rem;display:block;background:var(--brown);color:#CDDC3C;padding:6px 10px;border-radius:4px;margin-top:6px;">import os; print(os.path.exists('/content/drive/MyDrive/agra_rag'))</code><br>It should print <strong>True</strong>. If it prints False, the shortcut wasn't added to My Drive correctly — redo step 2.</li>
+              <li>In Cell 4, make sure <code>AGRA_RAG_PATH</code> is set to <code>"/content/drive/MyDrive/agra_rag"</code> (the default). Do not change this unless told to.</li>
+            </ol>
+
+            <div class="prereq-tip" style="border-left:3px solid var(--coral);background:#fef0f0;">
+              ⚠️ <strong>PermissionError in Cell 4?</strong> — This means your Drive shortcut is view-only. Two fixes: (1) Ask the trainer to re-share agra_rag with <em>Editor</em> access, OR (2) In Colab, run <code style="font-size:0.78rem;">import shutil; shutil.copytree('/content/drive/MyDrive/agra_rag', '/content/agra_rag_local')</code> in a new cell before Cell 4, then change <code>AGRA_RAG_PATH</code> in Cell 4 to <code>'/content/agra_rag_local'</code>.
+            </div>
           </div>
         </div>
 
