@@ -919,48 +919,74 @@
             <span class="prereq-tag required">Required for Automated Pipeline</span>
           </div>
           <div class="prereq-body">
-            <p>The Xylem-Autopilot notebook reads and writes to a folder called <strong>agra_rag</strong> in your Google Drive. You need your own writable copy — not just a view-only shortcut — so the notebook can save your yield maps and CSVs into it during the training session.</p>
+            <p>The Xylem-Autopilot notebook uses a shared folder called <strong>agra_rag</strong> as its knowledge base (historical bulletins, FAISS embeddings, static data). You add it as a shortcut to your Drive — the notebook automatically creates your own writable local copy called <strong>agra_rag_local</strong> the first time you run Cell 4, so no write access to the shared folder is required.</p>
 
-            <p style="font-weight:700;margin-top:1rem;margin-bottom:0.4rem;">Adding the folder</p>
+            <p style="font-weight:700;margin-top:1rem;margin-bottom:0.4rem;">Adding the shortcut</p>
             <ol class="prereq-steps">
               <li>Open the agra_rag shared link provided by your trainer. It will open Google Drive showing the agra_rag folder.</li>
               <li>At the top of the page click <strong>Add shortcut to Drive</strong> → select <strong>My Drive</strong> → click <strong>Add shortcut</strong>. This makes it accessible inside Colab as <code style="font-size:0.78rem;">/content/drive/MyDrive/agra_rag</code>.</li>
-              <li><strong>Verify write access:</strong> Open the agra_rag folder in Drive and try creating a blank Google Doc inside it. If it lets you create, you have Editor access. If it says "View only", ask your trainer to re-share the folder with <em>Editor</em> permissions.</li>
             </ol>
 
-            <p style="font-weight:700;margin-top:1rem;margin-bottom:0.4rem;">After adding — verify these key sub-folders exist</p>
+            <p style="font-weight:700;margin-top:1rem;margin-bottom:0.4rem;">What the notebook does automatically on first run</p>
             <table style="width:100%;border-collapse:collapse;font-size:0.8rem;margin:0.5rem 0 1rem;border:1px solid var(--border);border-radius:6px;overflow:hidden;">
               <thead>
                 <tr style="background:var(--brown);color:var(--white);">
-                  <th style="padding:7px 12px;text-align:left;">Folder path inside agra_rag</th>
-                  <th style="padding:7px 12px;text-align:left;">Purpose</th>
+                  <th style="padding:7px 12px;text-align:left;">Folder</th>
+                  <th style="padding:7px 12px;text-align:left;">What it contains</th>
                 </tr>
               </thead>
               <tbody>
-                <tr style="background:var(--white);"><td style="padding:6px 12px;border-bottom:1px solid var(--border);font-family:monospace;font-size:0.77rem;">data/current_data/</td><td style="padding:6px 12px;border-bottom:1px solid var(--border);">Your ML output CSVs are automatically copied here by Cell 4</td></tr>
-                <tr style="background:#faf8f5;"><td style="padding:6px 12px;border-bottom:1px solid var(--border);font-family:monospace;font-size:0.77rem;">data/maps/</td><td style="padding:6px 12px;border-bottom:1px solid var(--border);">Generated yield and anomaly PNGs are copied here</td></tr>
-                <tr style="background:var(--white);"><td style="padding:6px 12px;border-bottom:1px solid var(--border);font-family:monospace;font-size:0.77rem;">data/historical_pdfs/</td><td style="padding:6px 12px;border-bottom:1px solid var(--border);">Pre-loaded past AGRA bulletins — knowledge base for the AI writer</td></tr>
+                <tr style="background:var(--white);"><td style="padding:6px 12px;border-bottom:1px solid var(--border);font-family:monospace;font-size:0.77rem;">data/current_data/</td><td style="padding:6px 12px;border-bottom:1px solid var(--border);">Your ML output CSVs — copied here by Cell 4</td></tr>
+                <tr style="background:#faf8f5;"><td style="padding:6px 12px;border-bottom:1px solid var(--border);font-family:monospace;font-size:0.77rem;">data/maps/</td><td style="padding:6px 12px;border-bottom:1px solid var(--border);">Generated yield and anomaly PNGs</td></tr>
+                <tr style="background:var(--white);"><td style="padding:6px 12px;border-bottom:1px solid var(--border);font-family:monospace;font-size:0.77rem;">data/historical_pdfs/</td><td style="padding:6px 12px;border-bottom:1px solid var(--border);">Past AGRA bulletins — knowledge base for the AI writer</td></tr>
                 <tr style="background:#faf8f5;"><td style="padding:6px 12px;border-bottom:1px solid var(--border);font-family:monospace;font-size:0.77rem;">embeddings/</td><td style="padding:6px 12px;border-bottom:1px solid var(--border);">Pre-built FAISS vector index — do not delete or move</td></tr>
-                <tr style="background:var(--white);"><td style="padding:6px 12px;font-family:monospace;font-size:0.77rem;">output/</td><td style="padding:6px 12px;">bulletin.html and production charts are saved here after Cell 4</td></tr>
+                <tr style="background:var(--white);"><td style="padding:6px 12px;font-family:monospace;font-size:0.77rem;">output/</td><td style="padding:6px 12px;">bulletin.html and charts are saved here after Cell 4</td></tr>
               </tbody>
             </table>
 
-            <p style="font-weight:700;margin-bottom:0.4rem;">In Colab — confirm the path is reachable</p>
+            <p style="font-weight:700;margin-bottom:0.4rem;">Confirm the shortcut is reachable in Colab</p>
             <ol class="prereq-steps">
-              <li>After mounting Drive in Cell 1, run this quick check in a new cell:<br><code style="font-size:0.78rem;display:block;background:var(--brown);color:#CDDC3C;padding:6px 10px;border-radius:4px;margin-top:6px;">import os; print(os.path.exists('/content/drive/MyDrive/agra_rag'))</code><br>It should print <strong>True</strong>. If it prints False, the shortcut wasn't added to My Drive correctly — redo step 2.</li>
-              <li>In Cell 4, make sure <code>AGRA_RAG_PATH</code> is set to <code>"/content/drive/MyDrive/agra_rag"</code> (the default). Do not change this unless told to.</li>
+              <li>After mounting Drive in Cell 1, run this quick check:<br><code style="font-size:0.78rem;display:block;background:var(--brown);color:#CDDC3C;padding:6px 10px;border-radius:4px;margin-top:6px;">import os; print(os.path.exists('/content/drive/MyDrive/agra_rag'))</code><br>It should print <strong>True</strong>. If False, the shortcut wasn't added to My Drive correctly — redo step 2 above.</li>
             </ol>
 
-            <div class="prereq-tip" style="border-left:3px solid var(--coral);background:#fef0f0;">
-              ⚠️ <strong>PermissionError in Cell 4?</strong> — This means your Drive shortcut is view-only. Two fixes: (1) Ask the trainer to re-share agra_rag with <em>Editor</em> access, OR (2) In Colab, run <code style="font-size:0.78rem;">import shutil; shutil.copytree('/content/drive/MyDrive/agra_rag', '/content/agra_rag_local')</code> in a new cell before Cell 4, then change <code>AGRA_RAG_PATH</code> in Cell 4 to <code>'/content/agra_rag_local'</code>.
+            <div class="prereq-tip" style="background:#e8f4e8;border-left:3px solid #4CAF50;">
+              ✅ <strong>No write access needed on the shared folder.</strong> When you run Cell 4 for the first time, the notebook automatically copies <code>agra_rag</code> → <code>agra_rag_local</code> in your own Drive — fully writable, isolated to your account. Every run after that skips the copy and uses your <code>agra_rag_local</code> directly.
             </div>
           </div>
         </div>
 
-        <!-- 4. QGIS -->
+        <!-- 4. Automated Pipeline Notebook -->
         <div class="prereq-card">
           <div class="prereq-header">
             <div class="prereq-num">4</div>
+            <div class="prereq-title">Save the Automated Pipeline Notebook to Your Drive</div>
+            <span class="prereq-tag required">Required for Automated Pipeline</span>
+          </div>
+          <div class="prereq-body">
+            <p>The Xylem-Autopilot pipeline runs from a single Colab notebook — <strong>AGRA_Full_Pipeline_v10.ipynb</strong>. You need your own copy saved to the <em>same Google account</em> where you created your GEE project, so the notebook can authenticate with Earth Engine and write to your Drive without any permission issues.</p>
+
+            <p style="font-weight:700;margin-top:1rem;margin-bottom:0.4rem;">Steps to copy the notebook to your account</p>
+            <ol class="prereq-steps">
+              <li>Open the shared notebook: <a href="https://colab.research.google.com/drive/1_8vld1hK4PHvgWpwXeT-EVN2F5i0QGQu" target="_blank" style="font-weight:600;">AGRA_Full_Pipeline_v10.ipynb ↗</a></li>
+              <li>In the top menu click <strong>File → Save a copy in Drive</strong>. Colab saves it to your Google Drive as <em>"Copy of AGRA_Full_Pipeline_v10.ipynb"</em>.</li>
+              <li>Rename it: click the filename at the top → remove "Copy of " → keep it as <strong>AGRA_Full_Pipeline_v10.ipynb</strong>.</li>
+              <li>From now on, always open and run <strong>your saved copy</strong> from Drive — not the shared original link. Your copy is what remembers your GEE project ID and your edits.</li>
+            </ol>
+
+            <div class="prereq-tip" style="border-left:3px solid var(--coral);background:#fef0f0;">
+              ⚠️ <strong>Must be the same Google account as your GEE project.</strong> If you run the notebook from a different account, <code>ee.Initialize(project='...')</code> will fail with an authentication error. Sign in to Chrome with your GEE account before opening Colab.
+            </div>
+
+            <div class="prereq-tip" style="background:#e8f4e8;border-left:3px solid #4CAF50;margin-top:0.6rem;">
+              💡 <strong>Tip:</strong> After saving your copy, pin it in Drive for quick access: right-click the file → <strong>Add to Starred</strong>. You'll find it instantly under <em>Starred</em> in the Drive sidebar each training day.
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. QGIS -->
+        <div class="prereq-card">
+          <div class="prereq-header">
+            <div class="prereq-num">5</div>
             <div class="prereq-title">QGIS Desktop (version 3.22 or later)</div>
             <span class="prereq-tag required">Required</span>
           </div>
@@ -976,10 +1002,10 @@
           </div>
         </div>
 
-        <!-- 5. Laptop & Browser -->
+        <!-- 6. Laptop & Browser -->
         <div class="prereq-card">
           <div class="prereq-header">
-            <div class="prereq-num">5</div>
+            <div class="prereq-num">6</div>
             <div class="prereq-title">Laptop with Chrome &amp; Stable Internet</div>
             <span class="prereq-tag required">Required</span>
           </div>
