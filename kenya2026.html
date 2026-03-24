@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>RFBS Training 2026 | Xylem Lab</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap"
+    rel="stylesheet">
 
   <style>
     /* ── Design Tokens ── */
     :root {
-      --brown:        #2E170E;
-      --brown-mid:    #5C3D27;
-      --cream:        #EFE7DA;
-      --cream-light:  #F7F2EC;
-      --white:        #FFFFFF;
-      --lime:         #CDDC3C;
-      --lime-dark:    #A8B830;
-      --coral:        #D13C3A;
-      --coral-dark:   #A82E2C;
-      --green:        #64A635;
-      --gray:         #8A7A6E;
-      --border:       #E4D9CE;
+      --brown: #2E170E;
+      --brown-mid: #5C3D27;
+      --cream: #EFE7DA;
+      --cream-light: #F7F2EC;
+      --white: #FFFFFF;
+      --lime: #CDDC3C;
+      --lime-dark: #A8B830;
+      --coral: #D13C3A;
+      --coral-dark: #A82E2C;
+      --green: #64A635;
+      --gray: #8A7A6E;
+      --border: #E4D9CE;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: 'Source Sans 3', sans-serif;
@@ -45,14 +57,28 @@
       align-items: center;
       justify-content: space-between;
       padding: 0.75rem 2rem;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+      box-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
     }
-    #navbar a { text-decoration: none; }
-    #logo img { max-height: 2.5em; width: auto; display: block; filter: brightness(1.05); }
 
-    .nav-links { display: flex; gap: 0.125rem; list-style: none; }
+    #navbar a {
+      text-decoration: none;
+    }
+
+    #logo img {
+      max-height: 2.5em;
+      width: auto;
+      display: block;
+      filter: brightness(1.05);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.125rem;
+      list-style: none;
+    }
+
     .nav-links a {
-      color: rgba(239,231,218,0.85);
+      color: rgba(239, 231, 218, 0.85);
       font-family: 'Space Grotesk', sans-serif;
       font-size: 0.82rem;
       font-weight: 600;
@@ -62,33 +88,42 @@
       border-radius: 3px;
       transition: background 0.18s, color 0.18s;
     }
-    .nav-links a:hover { background: var(--lime); color: var(--brown); }
+
+    .nav-links a:hover {
+      background: var(--lime);
+      color: var(--brown);
+    }
 
     /* ── HERO ── */
     #hero {
       background:
-        linear-gradient(to bottom, rgba(46,23,14,0.40) 0%, rgba(46,23,14,0.55) 50%, rgba(46,23,14,0.85) 100%),
+        linear-gradient(to bottom, rgba(46, 23, 14, 0.40) 0%, rgba(46, 23, 14, 0.55) 50%, rgba(46, 23, 14, 0.85) 100%),
         url('assets/kenya_farmers.jpg') center 30% / cover no-repeat;
       color: var(--white);
       position: relative;
       overflow: hidden;
     }
+
     /* lime accent stripe */
     #hero::before {
       content: '';
       position: absolute;
-      left: 0; top: 0;
+      left: 0;
+      top: 0;
       width: 5px;
       height: 100%;
       background: var(--lime);
       z-index: 2;
     }
+
     /* lime bottom edge accent */
     #hero::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 0;
-      width: 100%; height: 3px;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
       background: linear-gradient(to right, var(--lime), transparent 60%);
     }
 
@@ -99,7 +134,9 @@
     }
 
     @media (max-width: 640px) {
-      .hero-inner { padding: 3.5rem 1.25rem 3rem 2rem; }
+      .hero-inner {
+        padding: 3.5rem 1.25rem 3rem 2rem;
+      }
     }
 
     .hero-eyebrow {
@@ -134,14 +171,16 @@
       flex-wrap: wrap;
       margin-bottom: 2rem;
     }
+
     .hero-meta-item {
       display: flex;
       align-items: center;
       gap: 0.5rem;
       font-size: 0.9rem;
-      color: rgba(239,231,218,0.8);
+      color: rgba(239, 231, 218, 0.8);
       font-weight: 400;
     }
+
     .hero-meta-item::before {
       content: '';
       display: block;
@@ -173,14 +212,49 @@
       transition: background 0.18s, transform 0.15s, box-shadow 0.18s;
       white-space: nowrap;
     }
-    .btn-coral  { background: var(--coral);  color: var(--white); }
-    .btn-coral:hover  { background: var(--coral-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(209,60,58,0.3); }
-    .btn-lime   { background: var(--lime);   color: var(--brown); }
-    .btn-lime:hover   { background: var(--lime-dark);  transform: translateY(-1px); }
-    .btn-ghost  { background: transparent; color: rgba(239,231,218,0.85); border: 1.5px solid rgba(239,231,218,0.6); }
-    .btn-ghost:hover  { background: rgba(239,231,218,0.08); border-color: rgba(239,231,218,0.8); }
-    .btn-outline { background: transparent; color: var(--brown); border: 1.5px solid var(--border); }
-    .btn-outline:hover { border-color: var(--coral); color: var(--coral); }
+
+    .btn-coral {
+      background: var(--coral);
+      color: var(--white);
+    }
+
+    .btn-coral:hover {
+      background: var(--coral-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(209, 60, 58, 0.3);
+    }
+
+    .btn-lime {
+      background: var(--lime);
+      color: var(--brown);
+    }
+
+    .btn-lime:hover {
+      background: var(--lime-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: rgba(239, 231, 218, 0.85);
+      border: 1.5px solid rgba(239, 231, 218, 0.6);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(239, 231, 218, 0.08);
+      border-color: rgba(239, 231, 218, 0.8);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--brown);
+      border: 1.5px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--coral);
+      color: var(--coral);
+    }
 
     /* ── QUICK NAV STRIP ── */
     #quicknav {
@@ -190,6 +264,7 @@
       overflow-x: auto;
       padding: 0 1.5rem;
     }
+
     .qnav-link {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 0.78rem;
@@ -203,7 +278,11 @@
       white-space: nowrap;
       transition: color 0.18s, border-color 0.18s;
     }
-    .qnav-link:hover { color: var(--coral); border-bottom-color: var(--coral); }
+
+    .qnav-link:hover {
+      color: var(--coral);
+      border-bottom-color: var(--coral);
+    }
 
     /* ── MAIN LAYOUT ── */
     #content {
@@ -212,7 +291,9 @@
       padding: 3.5rem 2rem 5rem;
     }
 
-    .section { margin-bottom: 4.5rem; }
+    .section {
+      margin-bottom: 4.5rem;
+    }
 
     /* ── SECTION HEADERS ── */
     .section-tag {
@@ -227,6 +308,7 @@
       color: var(--coral);
       margin-bottom: 0.6rem;
     }
+
     .section-tag::before {
       content: '';
       display: block;
@@ -255,7 +337,10 @@
       margin-bottom: 0.875rem;
     }
 
-    p { color: var(--brown-mid); margin-bottom: 1rem; }
+    p {
+      color: var(--brown-mid);
+      margin-bottom: 1rem;
+    }
 
     /* ── CARD: ABOUT ── */
     .about-card {
@@ -265,7 +350,13 @@
       padding: 1.5rem 1.75rem;
       margin-bottom: 0.5rem;
     }
-    .about-card p { margin: 0; color: var(--brown-mid); font-size: 1.0rem; line-height: 1.75; }
+
+    .about-card p {
+      margin: 0;
+      color: var(--brown-mid);
+      font-size: 1.0rem;
+      line-height: 1.75;
+    }
 
     /* ── TEAM GRID ── */
     .team-grid {
@@ -274,6 +365,7 @@
       gap: 0.875rem;
       margin-top: 0.5rem;
     }
+
     .team-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -281,7 +373,12 @@
       padding: 1.125rem 1.25rem;
       transition: border-color 0.18s, transform 0.18s;
     }
-    .team-card:hover { border-color: var(--lime); transform: translateY(-2px); }
+
+    .team-card:hover {
+      border-color: var(--lime);
+      transform: translateY(-2px);
+    }
+
     .team-card .role {
       font-size: 0.68rem;
       font-weight: 700;
@@ -290,6 +387,7 @@
       color: var(--coral);
       margin-bottom: 0.3rem;
     }
+
     .team-card .name {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 0.95rem;
@@ -297,6 +395,7 @@
       color: var(--brown);
       line-height: 1.35;
     }
+
     .team-card .affil {
       font-size: 0.78rem;
       color: var(--gray);
@@ -315,6 +414,7 @@
       border-radius: 8px;
       margin-top: 0.5rem;
     }
+
     .partners-row img {
       max-height: 3.25em;
       width: auto;
@@ -322,7 +422,10 @@
       opacity: 0.8;
       transition: opacity 0.18s;
     }
-    .partners-row img:hover { opacity: 1; }
+
+    .partners-row img:hover {
+      opacity: 1;
+    }
 
     /* ── DIVIDER ── */
     .divider {
@@ -338,6 +441,7 @@
       border: 1px solid var(--border);
       background: var(--white);
     }
+
     .schedule-frame iframe {
       display: block;
       width: 100%;
@@ -363,15 +467,23 @@
       transition: background 0.18s, transform 0.15s;
       margin-bottom: 2rem;
     }
-    .gee-btn:hover { background: var(--lime-dark); transform: translateY(-1px); }
+
+    .gee-btn:hover {
+      background: var(--lime-dark);
+      transform: translateY(-1px);
+    }
 
     /* ── NUMBERED STEPS ── */
-    .step-list { list-style: none; }
+    .step-list {
+      list-style: none;
+    }
+
     .step-item {
       display: flex;
       gap: 1rem;
       margin-bottom: 1.375rem;
     }
+
     .step-num {
       display: flex;
       align-items: center;
@@ -387,6 +499,7 @@
       margin-top: 0.1rem;
       flex-shrink: 0;
     }
+
     .step-content h4 {
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
@@ -394,13 +507,19 @@
       color: var(--brown);
       margin-bottom: 0.4rem;
     }
-    .step-content ul { list-style: none; padding: 0; }
+
+    .step-content ul {
+      list-style: none;
+      padding: 0;
+    }
+
     .step-content ul li {
       font-size: 0.875rem;
       color: var(--brown-mid);
       padding: 0.175rem 0 0.175rem 1rem;
       position: relative;
     }
+
     .step-content ul li::before {
       content: '–';
       position: absolute;
@@ -410,7 +529,10 @@
     }
 
     /* ── CODE BLOCKS ── */
-    .code-group { margin-bottom: 1.375rem; }
+    .code-group {
+      margin-bottom: 1.375rem;
+    }
+
     .code-label {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 0.78rem;
@@ -420,6 +542,7 @@
       text-transform: uppercase;
       margin-bottom: 0.4rem;
     }
+
     pre.code-block {
       background: var(--brown);
       color: var(--lime);
@@ -439,6 +562,7 @@
       gap: 0.875rem;
       margin-top: 0.5rem;
     }
+
     .helmets-card {
       display: block;
       background: var(--white);
@@ -451,18 +575,29 @@
       overflow: hidden;
       transition: border-color 0.18s, transform 0.18s;
     }
+
     .helmets-card::after {
       content: '';
       position: absolute;
-      bottom: 0; left: 0;
-      width: 100%; height: 3px;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
       background: var(--lime);
       transform: scaleX(0);
       transition: transform 0.2s;
       transform-origin: left;
     }
-    .helmets-card:hover { border-color: var(--lime); transform: translateY(-2px); }
-    .helmets-card:hover::after { transform: scaleX(1); }
+
+    .helmets-card:hover {
+      border-color: var(--lime);
+      transform: translateY(-2px);
+    }
+
+    .helmets-card:hover::after {
+      transform: scaleX(1);
+    }
+
     .helmets-card .step-badge {
       font-size: 0.68rem;
       font-weight: 700;
@@ -471,12 +606,14 @@
       color: var(--gray);
       margin-bottom: 0.5rem;
     }
+
     .helmets-card .card-title {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 1rem;
       font-weight: 700;
       color: var(--brown);
     }
+
     .helmets-card .card-arrow {
       font-size: 1rem;
       color: var(--coral);
@@ -491,6 +628,7 @@
       gap: 0.875rem;
       margin-top: 0.5rem;
     }
+
     .learn-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -501,7 +639,12 @@
       align-items: flex-start;
       transition: border-color 0.18s, transform 0.18s;
     }
-    .learn-card:hover { border-color: var(--lime); transform: translateY(-2px); }
+
+    .learn-card:hover {
+      border-color: var(--lime);
+      transform: translateY(-2px);
+    }
+
     .learn-num {
       display: flex;
       align-items: center;
@@ -517,6 +660,7 @@
       flex-shrink: 0;
       margin-top: 0.1rem;
     }
+
     .learn-text .learn-title {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 0.9rem;
@@ -524,6 +668,7 @@
       color: var(--brown);
       margin-bottom: 0.25rem;
     }
+
     .learn-text .learn-desc {
       font-size: 0.82rem;
       color: var(--gray);
@@ -531,13 +676,20 @@
     }
 
     /* ── PREREQUISITES ── */
-    .prereq-list { display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem; }
+    .prereq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
     .prereq-card {
       background: var(--white);
       border: 1px solid var(--border);
       border-radius: 8px;
       overflow: hidden;
     }
+
     .prereq-header {
       display: flex;
       align-items: center;
@@ -546,6 +698,7 @@
       border-bottom: 1px solid var(--border);
       background: var(--cream-light);
     }
+
     .prereq-num {
       display: flex;
       align-items: center;
@@ -560,12 +713,14 @@
       border-radius: 4px;
       flex-shrink: 0;
     }
+
     .prereq-title {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 0.95rem;
       font-weight: 700;
       color: var(--brown);
     }
+
     .prereq-tag {
       margin-left: auto;
       font-size: 0.65rem;
@@ -576,11 +731,33 @@
       border-radius: 2px;
       white-space: nowrap;
     }
-    .prereq-tag.required { background: var(--coral); color: var(--white); }
-    .prereq-tag.optional { background: var(--lime); color: var(--brown); }
-    .prereq-body { padding: 1rem 1.25rem; }
-    .prereq-body p { font-size: 0.875rem; color: var(--brown-mid); margin-bottom: 0.75rem; }
-    .prereq-steps { list-style: none; padding: 0; counter-reset: psteps; }
+
+    .prereq-tag.required {
+      background: var(--coral);
+      color: var(--white);
+    }
+
+    .prereq-tag.optional {
+      background: var(--lime);
+      color: var(--brown);
+    }
+
+    .prereq-body {
+      padding: 1rem 1.25rem;
+    }
+
+    .prereq-body p {
+      font-size: 0.875rem;
+      color: var(--brown-mid);
+      margin-bottom: 0.75rem;
+    }
+
+    .prereq-steps {
+      list-style: none;
+      padding: 0;
+      counter-reset: psteps;
+    }
+
     .prereq-steps li {
       counter-increment: psteps;
       display: flex;
@@ -591,7 +768,11 @@
       border-bottom: 1px solid #f5f0eb;
       align-items: flex-start;
     }
-    .prereq-steps li:last-child { border-bottom: none; }
+
+    .prereq-steps li:last-child {
+      border-bottom: none;
+    }
+
     .prereq-steps li::before {
       content: counter(psteps);
       display: flex;
@@ -608,8 +789,16 @@
       flex-shrink: 0;
       margin-top: 0.1rem;
     }
-    .prereq-steps li a { color: var(--coral); font-weight: 600; }
-    .prereq-steps li a:hover { text-decoration: underline; }
+
+    .prereq-steps li a {
+      color: var(--coral);
+      font-weight: 600;
+    }
+
+    .prereq-steps li a:hover {
+      text-decoration: underline;
+    }
+
     .prereq-tip {
       margin-top: 0.75rem;
       padding: 0.625rem 0.875rem;
@@ -627,6 +816,7 @@
       gap: 0.875rem;
       margin-top: 0.5rem;
     }
+
     .contact-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -634,7 +824,11 @@
       padding: 1rem 1.25rem;
       transition: border-color 0.18s;
     }
-    .contact-card:hover { border-color: var(--coral); }
+
+    .contact-card:hover {
+      border-color: var(--coral);
+    }
+
     .contact-card .c-role {
       font-size: 0.65rem;
       font-weight: 700;
@@ -643,6 +837,7 @@
       color: var(--coral);
       margin-bottom: 0.3rem;
     }
+
     .contact-card .c-name {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 0.92rem;
@@ -650,12 +845,204 @@
       color: var(--brown);
       margin-bottom: 0.3rem;
     }
+
     .contact-card .c-email {
       font-size: 0.8rem;
       color: var(--gray);
     }
-    .contact-card .c-email a { color: var(--coral); text-decoration: none; font-weight: 500; }
-    .contact-card .c-email a:hover { text-decoration: underline; }
+
+    .contact-card .c-email a {
+      color: var(--coral);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-card .c-email a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── GROUP PHOTO BANNER ── */
+    .group-photo-banner {
+      width: 100%;
+      background: var(--brown);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .group-photo-banner img {
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+      opacity: 0.92;
+    }
+
+    .group-photo-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(46,23,14,0.88) 0%, transparent 100%);
+      padding: 1.5rem 2rem 1rem;
+      color: var(--cream);
+      font-size: 0.85rem;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .group-photo-caption strong {
+      display: block;
+      font-size: 1rem;
+      color: var(--lime);
+      margin-bottom: 0.2rem;
+    }
+
+    /* ── WORKSHOP GALLERY ── */
+    .gallery-section {
+      padding: 3rem 2rem;
+      max-width: 72rem;
+      margin: 0 auto;
+    }
+
+    .gallery-featured {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .gallery-featured img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .gallery-featured .gallery-side {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .gallery-featured .gallery-side img {
+      height: 150px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.75rem;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+      transition: transform 0.2s, opacity 0.2s;
+      cursor: pointer;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.02);
+      opacity: 0.9;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .gallery-item img {
+      border-radius: 0;
+    }
+
+    .gallery-item-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(46,23,14,0.82) 0%, transparent 100%);
+      color: var(--cream);
+      font-size: 0.72rem;
+      font-family: 'Space Grotesk', sans-serif;
+      padding: 0.75rem 0.6rem 0.45rem;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .gallery-item:hover .gallery-item-caption {
+      opacity: 1;
+    }
+
+    .gallery-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 0.75rem;
+    }
+
+    .gallery-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 1.5rem;
+    }
+
+    .certificates-banner {
+      margin-top: 0.75rem;
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .certificates-banner img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+
+    .certificates-banner-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(46,23,14,0.85) 0%, transparent 100%);
+      padding: 1.25rem 1.5rem 0.75rem;
+      color: var(--cream);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .certificates-banner-caption strong {
+      display: block;
+      color: var(--lime);
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .certificates-banner-caption span {
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-featured {
+        grid-template-columns: 1fr;
+      }
+      .gallery-featured img {
+        height: 220px;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
 
     /* ── FOOTER ── */
     #footer {
@@ -666,14 +1053,30 @@
       font-size: 0.82rem;
       opacity: 0.95;
     }
-    #footer a { color: var(--lime); text-decoration: none; }
-    #footer a:hover { text-decoration: underline; }
+
+    #footer a {
+      color: var(--lime);
+      text-decoration: none;
+    }
+
+    #footer a:hover {
+      text-decoration: underline;
+    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
-      #navbar { padding: 0.75rem 1.25rem; }
-      .nav-links a { padding: 0.5rem 0.625rem; font-size: 0.75rem; }
-      #content { padding: 2.5rem 1.25rem 4rem; }
+      #navbar {
+        padding: 0.75rem 1.25rem;
+      }
+
+      .nav-links a {
+        padding: 0.5rem 0.625rem;
+        font-size: 0.75rem;
+      }
+
+      #content {
+        padding: 2.5rem 1.25rem 4rem;
+      }
     }
   </style>
 </head>
@@ -715,13 +1118,23 @@
     </div>
   </section>
 
+  <!-- ── GROUP PHOTO BANNER ── -->
+  <div class="group-photo-banner">
+    <img src="assets/group_photo_day2.jpg" alt="Workshop participants and Xylem Lab team group photo, Nairobi 2026">
+    <div class="group-photo-caption">
+      <strong>RFBS Crop Yield Forecast Training &mdash; Nairobi, Kenya &mdash; March 2026</strong>
+      Participants and Xylem Lab team following Day 2 presentations on YieldWatch and Xylem AutoPilot &mdash; Mövenpick Hotel, Nairobi
+    </div>
+  </div>
+
   <!-- ── QUICK NAV ── -->
   <div id="quicknav">
-    <a href="#about"         class="qnav-link">About</a>
-    <a href="#learn"         class="qnav-link">What You'll Learn</a>
+    <a href="#about" class="qnav-link">About</a>
+    <a href="#learn" class="qnav-link">What You'll Learn</a>
     <a href="#prerequisites" class="qnav-link">Prerequisites</a>
-    <a href="#schedule"      class="qnav-link">Schedule</a>
-    <a href="#helmets"       class="qnav-link">Helmets</a>
+    <a href="#schedule" class="qnav-link">Schedule</a>
+    <a href="#helmets" class="qnav-link">Helmets</a>
+    <a href="#instructions" class="qnav-link">Instructions</a>
   </div>
 
   <!-- ── MAIN CONTENT ── -->
@@ -733,7 +1146,12 @@
       <h2 class="sec-title">Regional Food Balance Sheet</h2>
 
       <div class="about-card">
-        <p>The Regional Food Balance Sheet (RFBS) project aims to revolutionize agricultural monitoring across East Africa by integrating Earth observation (EO) data with multiple yield forecasts. Through the collaborative development of standardized, semi-automated models, the project generates foundational datasets for Maize, Rice, and Beans to address critical data gaps in regional food security. This training focuses on knowledge transfer and capacity building for national partners to co-produce accurate yield forecasts within their respective countries.</p>
+        <p>The Regional Food Balance Sheet (RFBS) project aims to revolutionize agricultural monitoring across East
+          Africa by integrating Earth observation (EO) data with multiple yield forecasts. Through the collaborative
+          development of standardized, semi-automated models, the project generates foundational datasets for Maize,
+          Rice, and Beans to address critical data gaps in regional food security. This training focuses on knowledge
+          transfer and capacity building for national partners to co-produce accurate yield forecasts within their
+          respective countries.</p>
       </div>
 
       <h3 class="sub-title">Research Team</h3>
@@ -773,8 +1191,75 @@
       <h3 class="sub-title">Partners</h3>
       <div class="partners-row">
         <img src="assets/AGRA_Banner.png" alt="AGRA">
-        <img src="assets/umd-logo.png"    alt="University of Maryland">
+        <img src="assets/umd-logo.png" alt="University of Maryland">
         <img src="assets/XylemLab_logo.png" alt="Xylem Lab">
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ── WORKSHOP GALLERY ── -->
+    <section class="gallery-section">
+      <div class="gallery-label">Workshop in Action</div>
+      <div class="gallery-title">Three Days in Nairobi</div>
+
+      <!-- Featured row: Catherine's talk (large) + Patrick + participants listening -->
+      <div class="gallery-featured">
+        <div class="gallery-item">
+          <img src="assets/catherine_talk.jpg" alt="Professor Catherine Nakalembe presenting the problem and solution">
+          <div class="gallery-item-caption">Prof. Catherine Nakalembe &mdash; Overview of YieldWatch, AutoPilot, and the food security problem space</div>
+        </div>
+        <div class="gallery-side">
+          <div class="gallery-item">
+            <img src="assets/patrick_comesa_speaking.jpg" alt="Patrick Maingi, COMESA Secretariat">
+            <div class="gallery-item-caption">Patrick Maingi &mdash; RFBS Project Manager, COMESA Secretariat</div>
+          </div>
+          <div class="gallery-item">
+            <img src="assets/participants_listening.jpg" alt="Participants focused during a session">
+            <div class="gallery-item-caption">Participants during sessions</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4-column grid: talks + hands-on -->
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="assets/umesh_talk_day1.jpg" alt="Umesh Kumar Adari presenting on Day 1">
+          <div class="gallery-item-caption">Umesh Kumar Adari &mdash; Day 1 presentation</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/pradeep_talk_day2.jpg" alt="Pradeep Yellapu presenting Xylem AutoPilot on Day 2">
+          <div class="gallery-item-caption">Pradeep Kumar Yellapu &mdash; Day 2: Xylem AutoPilot</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/participant_feedback.jpg" alt="Participant asking questions and giving feedback">
+          <div class="gallery-item-caption">Live Q&amp;A and participant feedback</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/handson_day2.jpg" alt="Hands-on pipeline session, Day 2">
+          <div class="gallery-item-caption">Hands-on pipeline session &mdash; Day 2</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/monica_helping.jpg" alt="Monica Adjei helping participants">
+          <div class="gallery-item-caption">Monica Adjei supporting participants</div>
+        </div>
+        <div class="gallery-item">
+          <img src="assets/umesh_helping.jpg" alt="Umesh helping participants with the pipeline">
+          <div class="gallery-item-caption">Umesh Adari supporting participants</div>
+        </div>
+        <div class="gallery-item" style="grid-column: span 2;">
+          <img src="assets/team_happy.jpg" alt="Pradeep, Umesh and Monica" style="height:180px; width:100%; object-fit:cover; border-radius:8px;">
+          <div class="gallery-item-caption">Pradeep, Umesh &amp; Monica &mdash; Nairobi 2026</div>
+        </div>
+      </div>
+
+      <!-- Certificates full-width -->
+      <div class="certificates-banner">
+        <img src="assets/certificates_day3.jpg" alt="Analysts with certificates on Day 3">
+        <div class="certificates-banner-caption">
+          <strong>Day 3 &mdash; Workshop Completion</strong>
+          <span>Analysts holding their certificates after three successful days of hands-on training &mdash; Nairobi, Kenya, March 2026</span>
+        </div>
       </div>
     </section>
 
@@ -789,42 +1274,48 @@
           <div class="learn-num">1</div>
           <div class="learn-text">
             <div class="learn-title">Crop Yield Forecasting with EO</div>
-            <div class="learn-desc">How satellite datasuch as NDVI, rainfall, temperature,is used to predict maize yields across East Africa.</div>
+            <div class="learn-desc">How satellite datasuch as NDVI, rainfall, temperature,is used to predict maize
+              yields across East Africa.</div>
           </div>
         </div>
         <div class="learn-card">
           <div class="learn-num">2</div>
           <div class="learn-text">
             <div class="learn-title">YieldWatch ML Pipeline</div>
-            <div class="learn-desc">Run an end-to-end machine learning pipeline that extracts features from GEE and generates country-level yield predictions.</div>
+            <div class="learn-desc">Run an end-to-end machine learning pipeline that extracts features from GEE and
+              generates country-level yield predictions.</div>
           </div>
         </div>
         <div class="learn-card">
           <div class="learn-num">3</div>
           <div class="learn-text">
             <div class="learn-title">Yield Raster Map Generation</div>
-            <div class="learn-desc">Convert yield prediction CSVs into georeferenced raster maps using Google Earth Engine,both yield and anomaly layers.</div>
+            <div class="learn-desc">Convert yield prediction CSVs into georeferenced raster maps using Google Earth
+              Engine,both yield and anomaly layers.</div>
           </div>
         </div>
         <div class="learn-card">
           <div class="learn-num">4</div>
           <div class="learn-text">
             <div class="learn-title">QGIS Map Styling</div>
-            <div class="learn-desc">Style yield and anomaly maps with proper color ramps, administrative boundaries, labels, and legends.</div>
+            <div class="learn-desc">Style yield and anomaly maps with proper color ramps, administrative boundaries,
+              labels, and legends.</div>
           </div>
         </div>
         <div class="learn-card">
           <div class="learn-num">5</div>
           <div class="learn-text">
             <div class="learn-title">Xylem-Autopilot Bulletin Pipeline</div>
-            <div class="learn-desc">Use the automated pipeline to generate RFBS bulletins,from raw data to AI-written narratives and final reports.</div>
+            <div class="learn-desc">Use the automated pipeline to generate RFBS bulletins,from raw data to AI-written
+              narratives and final reports.</div>
           </div>
         </div>
         <div class="learn-card">
           <div class="learn-num">6</div>
           <div class="learn-text">
             <div class="learn-title">Helmets Crop Data Collection</div>
-            <div class="learn-desc">Collect and process field crop type data points using GoPro cameras,from raw photos to georeferenced crop labels.</div>
+            <div class="learn-desc">Collect and process field crop type data points using GoPro cameras,from raw photos
+              to georeferenced crop labels.</div>
           </div>
         </div>
       </div>
@@ -847,12 +1338,16 @@
             <span class="prereq-tag required">Required</span>
           </div>
           <div class="prereq-body">
-            <p>Almost everything in this training runs through Google - Colab notebooks, Earth Engine, and your exported map files all live in Google Drive. You need a Google account before anything else.</p>
+            <p>Almost everything in this training runs through Google - Colab notebooks, Earth Engine, and your exported
+              map files all live in Google Drive. You need a Google account before anything else.</p>
             <ol class="prereq-steps">
-              <li>Go to <a href="https://accounts.google.com/signup" target="_blank">accounts.google.com/signup</a> and create a free Google account if you don't already have one.</li>
-              <li>Sign in and open <a href="https://drive.google.com" target="_blank">drive.google.com</a> - make sure you have at least 2 GB of free space for exported raster files.</li>
+              <li>Go to <a href="https://accounts.google.com/signup" target="_blank">accounts.google.com/signup</a> and
+                create a free Google account if you don't already have one.</li>
+              <li>Sign in and open <a href="https://drive.google.com" target="_blank">drive.google.com</a> - make sure
+                you have at least 2 GB of free space for exported raster files.</li>
             </ol>
-            <div class="prereq-tip">💡 Use a personal Gmail if possible. Institutional Google accounts sometimes block Earth Engine access.</div>
+            <div class="prereq-tip">💡 Use a personal Gmail if possible. Institutional Google accounts sometimes block
+              Earth Engine access.</div>
           </div>
         </div>
 
@@ -864,23 +1359,37 @@
             <span class="prereq-tag required">Required</span>
           </div>
           <div class="prereq-body">
-            <p>Earth Engine requires two things working together: a <strong>Google Cloud Project</strong> (your billing/API container) and an <strong>Earth Engine registration</strong> (grants you access to the GEE compute environment). Do these in order.</p>
+            <p>Earth Engine requires two things working together: a <strong>Google Cloud Project</strong> (your
+              billing/API container) and an <strong>Earth Engine registration</strong> (grants you access to the GEE
+              compute environment). Do these in order.</p>
 
-            <p style="font-weight:700;margin-top:1rem;margin-bottom:0.4rem;">Part A — Create a Cloud Project &amp; Enable the API</p>
+            <p style="font-weight:700;margin-top:1rem;margin-bottom:0.4rem;">Part A — Create a Cloud Project &amp;
+              Enable the API</p>
             <ol class="prereq-steps">
-              <li>Go to <a href="https://console.cloud.google.com/" target="_blank">console.cloud.google.com</a> → sign in → click the project dropdown at the very top → <strong>New Project</strong>.</li>
-              <li>Name it <strong>rfbs-yourname</strong> (lowercase, hyphens only, no spaces). Click <strong>Create</strong> and wait ~15 seconds until the notification says it's ready.</li>
-              <li>Make sure the new project is selected in the top dropdown, then open the <a href="https://console.cloud.google.com/apis/library/earthengine.googleapis.com" target="_blank">Earth Engine API page</a> and click <strong>Enable</strong>.</li>
-              <li>Copy your <strong>Project ID</strong> from the Cloud Console home page — it may look like <em>rfbs-yourname-123456</em>. You'll paste this into the Colab notebook's first cell where it says <code>ee.Initialize(project='...')</code>.</li>
+              <li>Go to <a href="https://console.cloud.google.com/" target="_blank">console.cloud.google.com</a> → sign
+                in → click the project dropdown at the very top → <strong>New Project</strong>.</li>
+              <li>Name it <strong>rfbs-yourname</strong> (lowercase, hyphens only, no spaces). Click
+                <strong>Create</strong> and wait ~15 seconds until the notification says it's ready.</li>
+              <li>Make sure the new project is selected in the top dropdown, then open the <a
+                  href="https://console.cloud.google.com/apis/library/earthengine.googleapis.com" target="_blank">Earth
+                  Engine API page</a> and click <strong>Enable</strong>.</li>
+              <li>Copy your <strong>Project ID</strong> from the Cloud Console home page — it may look like
+                <em>rfbs-yourname-123456</em>. You'll paste this into the Colab notebook's first cell where it says
+                <code>ee.Initialize(project='...')</code>.</li>
             </ol>
 
-            <p style="font-weight:700;margin-top:1.25rem;margin-bottom:0.4rem;">Part B — Register for Earth Engine Access</p>
+            <p style="font-weight:700;margin-top:1.25rem;margin-bottom:0.4rem;">Part B — Register for Earth Engine
+              Access</p>
             <ol class="prereq-steps">
-              <li>Go to <a href="https://code.earthengine.google.com/register" target="_blank">code.earthengine.google.com/register</a> → sign in with the same Google account → click <strong>Register a Noncommercial or Commercial Cloud project</strong> → choose <strong>Unpaid usage</strong>.</li>
+              <li>Go to <a href="https://code.earthengine.google.com/register"
+                  target="_blank">code.earthengine.google.com/register</a> → sign in with the same Google account →
+                click <strong>Register a Noncommercial or Commercial Cloud project</strong> → choose <strong>Unpaid
+                  usage</strong>.</li>
               <li>On the registration form, fill in the answers exactly as shown below:</li>
             </ol>
 
-            <table style="width:100%;border-collapse:collapse;font-size:0.8rem;margin:0.75rem 0 1rem;border:1px solid var(--border);border-radius:6px;overflow:hidden;">
+            <table
+              style="width:100%;border-collapse:collapse;font-size:0.8rem;margin:0.75rem 0 1rem;border:1px solid var(--border);border-radius:6px;overflow:hidden;">
               <thead>
                 <tr style="background:var(--brown);color:var(--white);">
                   <th style="padding:8px 12px;text-align:left;font-weight:600;">Registration Question</th>
@@ -888,25 +1397,70 @@
                 </tr>
               </thead>
               <tbody>
-                <tr style="background:var(--white);"><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Which of the following best describes you or your organization?</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">Public or private academic institution (including faculty, staff, students)</td></tr>
-                <tr style="background:#faf8f5;"><td style="padding:7px 12px;border-bottom:1px solid var(--border);">What is the name of your academic institution?</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">Your university or national research agency</td></tr>
-                <tr style="background:var(--white);"><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Will you receive payment from commercial entities for applications or data created using Earth Engine?</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">No</td></tr>
-                <tr style="background:#faf8f5;"><td style="padding:7px 12px;border-bottom:1px solid var(--border);">How would you describe your use of Earth Engine?</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">Scientific research</td></tr>
-                <tr style="background:var(--white);"><td style="padding:7px 12px;border-bottom:1px solid var(--border);">What is your research question?</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">Estimating yield and production for African countries</td></tr>
-                <tr style="background:#faf8f5;"><td style="padding:7px 12px;border-bottom:1px solid var(--border);">What is the geographic scope of your study?</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">Global</td></tr>
-                <tr style="background:var(--white);"><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Have you previously published work on this topic that used Earth Engine?</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">No</td></tr>
-                <tr style="background:#faf8f5;"><td style="padding:7px 12px;border-bottom:1px solid var(--border);">Does your work with Earth Engine fall into any of these categories?</td><td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">Adaptation</td></tr>
-                <tr style="background:var(--white);"><td style="padding:7px 12px;">Will you use Earth Engine for any of the following?</td><td style="padding:7px 12px;font-weight:600;">Agriculture</td></tr>
+                <tr style="background:var(--white);">
+                  <td style="padding:7px 12px;border-bottom:1px solid var(--border);">Which of the following best
+                    describes you or your organization?</td>
+                  <td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">Public or private
+                    academic institution (including faculty, staff, students)</td>
+                </tr>
+                <tr style="background:#faf8f5;">
+                  <td style="padding:7px 12px;border-bottom:1px solid var(--border);">What is the name of your academic
+                    institution?</td>
+                  <td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">Your university or
+                    national research agency</td>
+                </tr>
+                <tr style="background:var(--white);">
+                  <td style="padding:7px 12px;border-bottom:1px solid var(--border);">Will you receive payment from
+                    commercial entities for applications or data created using Earth Engine?</td>
+                  <td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">No</td>
+                </tr>
+                <tr style="background:#faf8f5;">
+                  <td style="padding:7px 12px;border-bottom:1px solid var(--border);">How would you describe your use of
+                    Earth Engine?</td>
+                  <td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">Scientific
+                    research</td>
+                </tr>
+                <tr style="background:var(--white);">
+                  <td style="padding:7px 12px;border-bottom:1px solid var(--border);">What is your research question?
+                  </td>
+                  <td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">Estimating yield
+                    and production for African countries</td>
+                </tr>
+                <tr style="background:#faf8f5;">
+                  <td style="padding:7px 12px;border-bottom:1px solid var(--border);">What is the geographic scope of
+                    your study?</td>
+                  <td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">Global</td>
+                </tr>
+                <tr style="background:var(--white);">
+                  <td style="padding:7px 12px;border-bottom:1px solid var(--border);">Have you previously published work
+                    on this topic that used Earth Engine?</td>
+                  <td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">No</td>
+                </tr>
+                <tr style="background:#faf8f5;">
+                  <td style="padding:7px 12px;border-bottom:1px solid var(--border);">Does your work with Earth Engine
+                    fall into any of these categories?</td>
+                  <td style="padding:7px 12px;border-bottom:1px solid var(--border);font-weight:600;">Adaptation</td>
+                </tr>
+                <tr style="background:var(--white);">
+                  <td style="padding:7px 12px;">Will you use Earth Engine for any of the following?</td>
+                  <td style="padding:7px 12px;font-weight:600;">Agriculture</td>
+                </tr>
               </tbody>
             </table>
 
             <ol class="prereq-steps">
-              <li>Click <strong>Submit</strong>. Approval is usually instant. Open <a href="https://code.earthengine.google.com" target="_blank">code.earthengine.google.com</a> — if a map loads, you're registered and ready.</li>
+              <li>Click <strong>Submit</strong>. Approval is usually instant. Open <a
+                  href="https://code.earthengine.google.com" target="_blank">code.earthengine.google.com</a> — if a map
+                loads, you're registered and ready.</li>
             </ol>
 
             <div class="prereq-tip" style="background:#e8f4e8;border-left:3px solid #4CAF50;margin-top:0.75rem;">
-              ✅ <strong>Why Noncommercial?</strong> — Free, no billing required, sufficient for all training and research workflows. The correct tier for university use.<br><br>
-              🏢 <strong>Why Commercial later?</strong> — Once Xylem-Autopilot moves to full operational production at AGRA, a Commercial project unlocks higher compute quotas, priority API access, SLA guarantees, and the ability to build fee-for-service data products. You cannot switch back from Commercial to Noncommercial, so stay Noncommercial for now.
+              ✅ <strong>Why Noncommercial?</strong> — Free, no billing required, sufficient for all training and
+              research workflows. The correct tier for university use.<br><br>
+              🏢 <strong>Why Commercial later?</strong> — Once Xylem-Autopilot moves to full operational production at
+              AGRA, a Commercial project unlocks higher compute quotas, priority API access, SLA guarantees, and the
+              ability to build fee-for-service data products. You cannot switch back from Commercial to Noncommercial,
+              so stay Noncommercial for now.
             </div>
           </div>
         </div>
@@ -919,16 +1473,24 @@
             <span class="prereq-tag required">Required for Automated Pipeline</span>
           </div>
           <div class="prereq-body">
-            <p>The Xylem-Autopilot notebook uses a shared folder called <strong>agra_rag</strong> as its knowledge base (historical bulletins, FAISS embeddings, static data). You add it as a shortcut to your Drive — the notebook automatically creates your own writable local copy called <strong>agra_rag_local</strong> the first time you run Cell 4, so no write access to the shared folder is required.</p>
+            <p>The Xylem-Autopilot notebook uses a shared folder called <strong>agra_rag</strong> as its knowledge base
+              (historical bulletins, FAISS embeddings, static data). You add it as a shortcut to your Drive — the
+              notebook automatically creates your own writable local copy called <strong>agra_rag_local</strong> the
+              first time you run Cell 4, so no write access to the shared folder is required.</p>
 
             <p style="font-weight:700;margin-top:1rem;margin-bottom:0.4rem;">Adding the shortcut</p>
             <ol class="prereq-steps">
-              <li>Open the agra_rag shared link provided by your trainer. It will open Google Drive showing the agra_rag folder.</li>
-              <li>At the top of the page click <strong>Add shortcut to Drive</strong> → select <strong>My Drive</strong> → click <strong>Add shortcut</strong>. This makes it accessible inside Colab as <code style="font-size:0.78rem;">/content/drive/MyDrive/agra_rag</code>.</li>
+              <li>Open the agra_rag shared link provided by your trainer. It will open Google Drive showing the agra_rag
+                folder.</li>
+              <li>At the top of the page click <strong>Add shortcut to Drive</strong> → select <strong>My Drive</strong>
+                → click <strong>Add shortcut</strong>. This makes it accessible inside Colab as <code
+                  style="font-size:0.78rem;">/content/drive/MyDrive/agra_rag</code>.</li>
             </ol>
 
-            <p style="font-weight:700;margin-top:1rem;margin-bottom:0.4rem;">What the notebook does automatically on first run</p>
-            <table style="width:100%;border-collapse:collapse;font-size:0.8rem;margin:0.5rem 0 1rem;border:1px solid var(--border);border-radius:6px;overflow:hidden;">
+            <p style="font-weight:700;margin-top:1rem;margin-bottom:0.4rem;">What the notebook does automatically on
+              first run</p>
+            <table
+              style="width:100%;border-collapse:collapse;font-size:0.8rem;margin:0.5rem 0 1rem;border:1px solid var(--border);border-radius:6px;overflow:hidden;">
               <thead>
                 <tr style="background:var(--brown);color:var(--white);">
                   <th style="padding:7px 12px;text-align:left;">Folder</th>
@@ -936,21 +1498,54 @@
                 </tr>
               </thead>
               <tbody>
-                <tr style="background:var(--white);"><td style="padding:6px 12px;border-bottom:1px solid var(--border);font-family:monospace;font-size:0.77rem;">data/current_data/</td><td style="padding:6px 12px;border-bottom:1px solid var(--border);">Your ML output CSVs — copied here by Cell 4</td></tr>
-                <tr style="background:#faf8f5;"><td style="padding:6px 12px;border-bottom:1px solid var(--border);font-family:monospace;font-size:0.77rem;">data/maps/</td><td style="padding:6px 12px;border-bottom:1px solid var(--border);">Generated yield and anomaly PNGs</td></tr>
-                <tr style="background:var(--white);"><td style="padding:6px 12px;border-bottom:1px solid var(--border);font-family:monospace;font-size:0.77rem;">data/historical_pdfs/</td><td style="padding:6px 12px;border-bottom:1px solid var(--border);">Past AGRA bulletins — knowledge base for the AI writer</td></tr>
-                <tr style="background:#faf8f5;"><td style="padding:6px 12px;border-bottom:1px solid var(--border);font-family:monospace;font-size:0.77rem;">embeddings/</td><td style="padding:6px 12px;border-bottom:1px solid var(--border);">Pre-built FAISS vector index — do not delete or move</td></tr>
-                <tr style="background:var(--white);"><td style="padding:6px 12px;font-family:monospace;font-size:0.77rem;">output/</td><td style="padding:6px 12px;">bulletin.html and charts are saved here after Cell 4</td></tr>
+                <tr style="background:var(--white);">
+                  <td
+                    style="padding:6px 12px;border-bottom:1px solid var(--border);font-family:monospace;font-size:0.77rem;">
+                    data/current_data/</td>
+                  <td style="padding:6px 12px;border-bottom:1px solid var(--border);">Your ML output CSVs — copied here
+                    by Cell 4</td>
+                </tr>
+                <tr style="background:#faf8f5;">
+                  <td
+                    style="padding:6px 12px;border-bottom:1px solid var(--border);font-family:monospace;font-size:0.77rem;">
+                    data/maps/</td>
+                  <td style="padding:6px 12px;border-bottom:1px solid var(--border);">Generated yield and anomaly PNGs
+                  </td>
+                </tr>
+                <tr style="background:var(--white);">
+                  <td
+                    style="padding:6px 12px;border-bottom:1px solid var(--border);font-family:monospace;font-size:0.77rem;">
+                    data/historical_pdfs/</td>
+                  <td style="padding:6px 12px;border-bottom:1px solid var(--border);">Past AGRA bulletins — knowledge
+                    base for the AI writer</td>
+                </tr>
+                <tr style="background:#faf8f5;">
+                  <td
+                    style="padding:6px 12px;border-bottom:1px solid var(--border);font-family:monospace;font-size:0.77rem;">
+                    embeddings/</td>
+                  <td style="padding:6px 12px;border-bottom:1px solid var(--border);">Pre-built FAISS vector index — do
+                    not delete or move</td>
+                </tr>
+                <tr style="background:var(--white);">
+                  <td style="padding:6px 12px;font-family:monospace;font-size:0.77rem;">output/</td>
+                  <td style="padding:6px 12px;">bulletin.html and charts are saved here after Cell 4</td>
+                </tr>
               </tbody>
             </table>
 
             <p style="font-weight:700;margin-bottom:0.4rem;">Confirm the shortcut is reachable in Colab</p>
             <ol class="prereq-steps">
-              <li>After mounting Drive in Cell 1, run this quick check:<br><code style="font-size:0.78rem;display:block;background:var(--brown);color:#CDDC3C;padding:6px 10px;border-radius:4px;margin-top:6px;">import os; print(os.path.exists('/content/drive/MyDrive/agra_rag'))</code><br>It should print <strong>True</strong>. If False, the shortcut wasn't added to My Drive correctly — redo step 2 above.</li>
+              <li>After mounting Drive in Cell 1, run this quick check:<br><code
+                  style="font-size:0.78rem;display:block;background:var(--brown);color:#CDDC3C;padding:6px 10px;border-radius:4px;margin-top:6px;">import os; print(os.path.exists('/content/drive/MyDrive/agra_rag'))</code><br>It
+                should print <strong>True</strong>. If False, the shortcut wasn't added to My Drive correctly — redo
+                step 2 above.</li>
             </ol>
 
             <div class="prereq-tip" style="background:#e8f4e8;border-left:3px solid #4CAF50;">
-              ✅ <strong>No write access needed on the shared folder.</strong> When you run Cell 4 for the first time, the notebook automatically copies <code>agra_rag</code> → <code>agra_rag_local</code> in your own Drive — fully writable, isolated to your account. Every run after that skips the copy and uses your <code>agra_rag_local</code> directly.
+              ✅ <strong>No write access needed on the shared folder.</strong> When you run Cell 4 for the first time,
+              the notebook automatically copies <code>agra_rag</code> → <code>agra_rag_local</code> in your own Drive —
+              fully writable, isolated to your account. Every run after that skips the copy and uses your
+              <code>agra_rag_local</code> directly.
             </div>
           </div>
         </div>
@@ -963,22 +1558,35 @@
             <span class="prereq-tag required">Required for Automated Pipeline</span>
           </div>
           <div class="prereq-body">
-            <p>The Xylem-Autopilot pipeline runs from a single Colab notebook — <strong>AGRA_Full_Pipeline_v10.ipynb</strong>. You need your own copy saved to the <em>same Google account</em> where you created your GEE project, so the notebook can authenticate with Earth Engine and write to your Drive without any permission issues.</p>
+            <p>The Xylem-Autopilot pipeline runs from a single Colab notebook —
+              <strong>AGRA_Full_Pipeline_v10.ipynb</strong>. You need your own copy saved to the <em>same Google
+                account</em> where you created your GEE project, so the notebook can authenticate with Earth Engine and
+              write to your Drive without any permission issues.</p>
 
-            <p style="font-weight:700;margin-top:1rem;margin-bottom:0.4rem;">Steps to copy the notebook to your account</p>
+            <p style="font-weight:700;margin-top:1rem;margin-bottom:0.4rem;">Steps to copy the notebook to your account
+            </p>
             <ol class="prereq-steps">
-              <li>Open the shared notebook: <a href="https://colab.research.google.com/drive/1_8vld1hK4PHvgWpwXeT-EVN2F5i0QGQu" target="_blank" style="font-weight:600;">AGRA_Full_Pipeline_v10.ipynb ↗</a></li>
-              <li>In the top menu click <strong>File → Save a copy in Drive</strong>. Colab saves it to your Google Drive as <em>"Copy of AGRA_Full_Pipeline_v10.ipynb"</em>.</li>
-              <li>Rename it: click the filename at the top → remove "Copy of " → keep it as <strong>AGRA_Full_Pipeline_v10.ipynb</strong>.</li>
-              <li>From now on, always open and run <strong>your saved copy</strong> from Drive — not the shared original link. Your copy is what remembers your GEE project ID and your edits.</li>
+              <li>Open the shared notebook: <a
+                  href="https://colab.research.google.com/drive/1_8vld1hK4PHvgWpwXeT-EVN2F5i0QGQu" target="_blank"
+                  style="font-weight:600;">AGRA_Full_Pipeline_v10.ipynb ↗</a></li>
+              <li>In the top menu click <strong>File → Save a copy in Drive</strong>. Colab saves it to your Google
+                Drive as <em>"Copy of AGRA_Full_Pipeline_v10.ipynb"</em>.</li>
+              <li>Rename it: click the filename at the top → remove "Copy of " → keep it as
+                <strong>AGRA_Full_Pipeline_v10.ipynb</strong>.</li>
+              <li>From now on, always open and run <strong>your saved copy</strong> from Drive — not the shared original
+                link. Your copy is what remembers your GEE project ID and your edits.</li>
             </ol>
 
             <div class="prereq-tip" style="border-left:3px solid var(--coral);background:#fef0f0;">
-              ⚠️ <strong>Must be the same Google account as your GEE project.</strong> If you run the notebook from a different account, <code>ee.Initialize(project='...')</code> will fail with an authentication error. Sign in to Chrome with your GEE account before opening Colab.
+              ⚠️ <strong>Must be the same Google account as your GEE project.</strong> If you run the notebook from a
+              different account, <code>ee.Initialize(project='...')</code> will fail with an authentication error. Sign
+              in to Chrome with your GEE account before opening Colab.
             </div>
 
             <div class="prereq-tip" style="background:#e8f4e8;border-left:3px solid #4CAF50;margin-top:0.6rem;">
-              💡 <strong>Tip:</strong> After saving your copy, pin it in Drive for quick access: right-click the file → <strong>Add to Starred</strong>. You'll find it instantly under <em>Starred</em> in the Drive sidebar each training day.
+              💡 <strong>Tip:</strong> After saving your copy, pin it in Drive for quick access: right-click the file →
+              <strong>Add to Starred</strong>. You'll find it instantly under <em>Starred</em> in the Drive sidebar each
+              training day.
             </div>
           </div>
         </div>
@@ -991,14 +1599,21 @@
             <span class="prereq-tag required">Required</span>
           </div>
           <div class="prereq-body">
-            <p>QGIS is the free mapping software we use to style and finalize yield maps before they go into the bulletin. Download and install it before arriving, the installer can be large (500 MB+) so don't leave it for the day of the training.</p>
+            <p>QGIS is the free mapping software we use to style and finalize yield maps before they go into the
+              bulletin. Download and install it before arriving, the installer can be large (500 MB+) so don't leave it
+              for the day of the training.</p>
             <ol class="prereq-steps">
-              <li>Go to <a href="https://qgis.org/en/site/forusers/download.html" target="_blank">qgis.org → Download</a>.</li>
-              <li>Choose the <strong>Long Term Release (LTR)</strong> version, it's the most stable. As of 2026 that is version 3.34 or later.</li>
-              <li>Download the installer for your operating system (Windows, Mac, or Linux) and run it. Accept all default options.</li>
-              <li>Open QGIS after installation and confirm it launches correctly. You should see the main map canvas with an empty project.</li>
+              <li>Go to <a href="https://qgis.org/en/site/forusers/download.html" target="_blank">qgis.org →
+                  Download</a>.</li>
+              <li>Choose the <strong>Long Term Release (LTR)</strong> version, it's the most stable. As of 2026 that is
+                version 3.34 or later.</li>
+              <li>Download the installer for your operating system (Windows, Mac, or Linux) and run it. Accept all
+                default options.</li>
+              <li>Open QGIS after installation and confirm it launches correctly. You should see the main map canvas
+                with an empty project.</li>
             </ol>
-            <div class="prereq-tip">💡 If you already have QGIS installed, check <strong>Help → About QGIS</strong> to confirm the version is 3.22 or higher.</div>
+            <div class="prereq-tip">💡 If you already have QGIS installed, check <strong>Help → About QGIS</strong> to
+              confirm the version is 3.22 or higher.</div>
           </div>
         </div>
 
@@ -1010,11 +1625,14 @@
             <span class="prereq-tag required">Required</span>
           </div>
           <div class="prereq-body">
-            <p>All notebooks run in the browser. Chrome works best with Google Colab and Earth Engine, other browsers may have display issues.</p>
+            <p>All notebooks run in the browser. Chrome works best with Google Colab and Earth Engine, other browsers
+              may have display issues.</p>
             <ol class="prereq-steps">
-              <li>Download and install <a href="https://www.google.com/chrome/" target="_blank">Google Chrome</a> if you don't already have it.</li>
+              <li>Download and install <a href="https://www.google.com/chrome/" target="_blank">Google Chrome</a> if you
+                don't already have it.</li>
               <li>Make sure Chrome is signed into the same Google account you used for GEE registration.</li>
-              <li>Bring your laptop fully charged. A power adapter is strongly recommended, Colab sessions can run for several hours.</li>
+              <li>Bring your laptop fully charged. A power adapter is strongly recommended, Colab sessions can run for
+                several hours.</li>
             </ol>
           </div>
         </div>
@@ -1048,6 +1666,105 @@
 
     <div class="divider"></div>
 
+
+    <!-- INSTRUCTIONS Sections 8 & 10 -->
+    <section id="instructions" class="section">
+      <div class="section-tag">Hands-on Session</div>
+      <h2 class="sec-title">Pipeline Instructions &amp; Limitations</h2>
+
+      <!-- SECTION 8 -->
+      <div class="prereq-card" style="margin-bottom: 2rem;">
+        <div class="prereq-header">
+          <div class="prereq-num">8</div>
+          <div class="prereq-title">Generate your own bulletin for your country (AGRA_Full_Pipeline_v11.ipynb)</div>
+          <span class="prereq-tag optional">~20 min</span>
+        </div>
+        <div class="prereq-body">
+          <p style="font-weight:700;margin-bottom:0.4rem;">Step-by-Step Instructions: The Automated Pipeline</p>
+          <ol class="prereq-steps">
+            <li><strong>Enter the Colab File:</strong> Open the automated pipeline notebook here: <a
+                href="https://drive.google.com/drive/folders/1vJMFG-eE6dwU7YLe_XJ3bXo4CH_lcelN?usp=drive_link"
+                target="_blank">AGRA_Full_Pipeline_v11</a>. Open the exact file:
+              <code>AGRA_Full_Pipeline_v11.ipynb</code>.</li>
+            <li><strong>Drive Shortcut:</strong> Ensure you have added the <a
+                href="https://drive.google.com/drive/folders/1MCgDVdbVuhNctoULQaURmqLFH019COw0?usp=drive_link"
+                target="_blank"><code>agra_rag</code></a> folder as a shortcut to your own Google Drive's root
+              directory, as detailed in the setup instructions.</li>
+            <li><strong>GEE Project ID:</strong> In Cell 1, you must enter your own Google Earth Engine Project ID
+              instead of using the default <code>agra-pradeep</code> to avoid rate limits and concurrent task errors.
+            </li>
+            <li><strong>Upload Data:</strong> For this exercise, use the December data CSVs found in the <a
+                href="https://drive.google.com/drive/folders/1vJMFG-eE6dwU7YLe_XJ3bXo4CH_lcelN?usp=drive_link"
+                target="_blank"><code>current_data</code></a> folder.</li>
+            <li><strong>Cell 3 - Map Generation:</strong> Select "Custom selection" from the dropdown. You'll see
+              checkboxes for each country and season. Select your country and run. Note that GEE map generation takes
+              around 10 to 15 minutes, or more if there are timeouts.</li>
+            <li><strong>Cell 4 - Bulletin Generation (One-Time Copy):</strong> The first time you run this, it will take
+              5-10 minutes to copy the <code>agra_rag</code> structure to your local Drive (<code>agra_rag_local</code>)
+              so your changes aren't overwritten. Keep in mind that bulletin generation consumes OpenAI API budget.</li>
+            <li><strong>Errors &amp; Fixes:</strong> If a GEE task times out, simply re-run cell 3. If you encounter
+              rate limits due to many participants, make sure you are using your own GEE Project ID.</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- SECTION 10 -->
+      <div class="prereq-card">
+        <div class="prereq-header">
+          <div class="prereq-num">10</div>
+          <div class="prereq-title">Challenges, Limitations &amp; Known Issues</div>
+          <span class="prereq-tag optional">~10 min</span>
+        </div>
+        <div class="prereq-body">
+          <p style="font-weight:700;margin-bottom:0.4rem;">Challenges &amp; Limitations — Full Disclosure</p>
+
+          <p style="font-weight:700;margin-top:1.25rem;margin-bottom:0.4rem;color:var(--coral);">GEE Challenges</p>
+          <ul
+            style="list-style-type: disc; margin-left: 1.5rem; font-size: 0.875rem; color: var(--brown-mid); margin-bottom: 1rem;">
+            <li><strong>Export time:</strong> GEE exports can take 3-15 minutes per raster depending on country size.
+              Large countries like Tanzania can take longer. No way to speed this up — it's server-side processing</li>
+            <li><strong>Rate limits:</strong> If many participants run GEE exports simultaneously on the same project,
+              you'll hit concurrent task limits. Solution: distribute across multiple GEE projects</li>
+            <li><strong>Region name mismatches:</strong> The FAO GAUL dataset uses official names — "United Republic of
+              Tanzania" not "Tanzania". The code handles this with GEE_COUNTRY_NAMES mapping, but new edge cases can
+              appear</li>
+          </ul>
+
+          <p style="font-weight:700;margin-top:1.25rem;margin-bottom:0.4rem;color:var(--coral);">AI/RAG Challenges</p>
+          <ul
+            style="list-style-type: disc; margin-left: 1.5rem; font-size: 0.875rem; color: var(--brown-mid); margin-bottom: 1rem;">
+            <li><strong>Cost:</strong> Each bulletin run costs ~$0.50-2.00 in OpenAI API calls (GPT-4.1-mini for text +
+              Vision + embeddings). At scale, this adds up</li>
+            <li><strong>Hallucination risk:</strong> Despite our prompt guardrails ("use ONLY current data numbers"),
+              GPT can still occasionally reference trends or comparisons that aren't in the data. Human review is
+              mandatory</li>
+            <li><strong>Context window:</strong> If a country has many regions (Kenya: 47), the full data for all crops
+              can exceed ideal context length. We truncate prompts at 1500 chars for logging but send full data to GPT
+            </li>
+            <li><strong>Image captioning quality:</strong> GPT Vision's map interpretation is good but not perfect — it
+              sometimes misidentifies regions or misreads values from the colorbar</li>
+          </ul>
+
+          <p style="font-weight:700;margin-top:1.25rem;margin-bottom:0.4rem;color:var(--coral);">Data Quality Challenges
+          </p>
+          <ul
+            style="list-style-type: disc; margin-left: 1.5rem; font-size: 0.875rem; color: var(--brown-mid); margin-bottom: 1rem;">
+            <li><strong>CSV headers must match exactly:</strong> Case-sensitive column names. A CSV with "Region"
+              instead of "region" will fail silently — the code won't find the data</li>
+            <li><strong>Missing regions:</strong> If the ML model doesn't produce a prediction for a region
+              (insufficient satellite data), that region shows as gray on the map. This is correct behavior but can
+              confuse users</li>
+            <li><strong>Production range accuracy:</strong> The min/max production values depend on std_error which
+              varies widely. Regions with high std_error (like Laikipia at 1.589) have extremely wide ranges that can be
+              misleading</li>
+          </ul>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
     <!-- SCHEDULE -->
     <section id="schedule" class="section">
       <div class="section-tag">March 2&ndash;6, 2026</div>
@@ -1072,17 +1789,20 @@
           <div class="card-title">Data Collection</div>
           <span class="card-arrow">&rarr;</span>
         </a>
-        <a href="https://github.com/nasaharvest/street2sat/blob/main/gcp/instructions-for-uploading.md" class="helmets-card">
+        <a href="https://github.com/nasaharvest/street2sat/blob/main/gcp/instructions-for-uploading.md"
+          class="helmets-card">
           <div class="step-badge">Step 02</div>
           <div class="card-title">Data Upload</div>
           <span class="card-arrow">&rarr;</span>
         </a>
-        <a href="https://colab.research.google.com/github/nasaharvest/street2sat/blob/gopro2crop/notebooks/GoPro2CropKMZ.ipynb" class="helmets-card">
+        <a href="https://colab.research.google.com/github/nasaharvest/street2sat/blob/gopro2crop/notebooks/GoPro2CropKMZ.ipynb"
+          class="helmets-card">
           <div class="step-badge">Step 03</div>
           <div class="card-title">Data Processing</div>
           <span class="card-arrow">&rarr;</span>
         </a>
-        <a href="https://docs.google.com/document/d/1OCF2gpCQQbZP-y6xcTbKE2OzhkxMtyaJi8wiWi8jfzs/edit?usp=sharing" class="helmets-card">
+        <a href="https://docs.google.com/document/d/1OCF2gpCQQbZP-y6xcTbKE2OzhkxMtyaJi8wiWi8jfzs/edit?usp=sharing"
+          class="helmets-card">
           <div class="step-badge">Step 04</div>
           <div class="card-title">Quality Assessment</div>
           <span class="card-arrow">&rarr;</span>
@@ -1101,4 +1821,5 @@
   </footer>
 
 </body>
+
 </html>
