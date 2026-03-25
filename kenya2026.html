@@ -865,37 +865,29 @@
     .group-photo-banner {
       width: 100%;
       background: var(--brown);
-      position: relative;
-      overflow: hidden;
     }
 
     .group-photo-banner img {
       width: 100%;
-      max-height: 520px;
-      object-fit: cover;
-      object-position: center 60%;
+      height: auto;
       display: block;
-      opacity: 0.92;
-      cursor: pointer;
+      cursor: zoom-in;
     }
 
     .group-photo-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(46,23,14,0.88) 0%, transparent 100%);
-      padding: 1.5rem 2rem 1rem;
+      background: var(--brown);
+      padding: 0.75rem 2rem 1rem;
       color: var(--cream);
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-family: 'Space Grotesk', sans-serif;
+      opacity: 0.9;
     }
 
     .group-photo-caption strong {
-      display: block;
-      font-size: 1rem;
+      display: inline;
+      font-size: 0.82rem;
       color: var(--lime);
-      margin-bottom: 0.2rem;
+      margin-right: 0.4rem;
     }
 
     /* ── WORKSHOP GALLERY ── */
@@ -1163,15 +1155,6 @@
     </div>
   </section>
 
-  <!-- ── GROUP PHOTO BANNER ── -->
-  <div class="group-photo-banner">
-    <img src="assets/group_photo_day2.jpg" alt="Workshop participants and Xylem Lab team group photo, Nairobi 2026">
-    <div class="group-photo-caption">
-      <strong>RFBS Crop Yield Forecast Training &mdash; Nairobi, Kenya &mdash; March 2026</strong>
-      Participants and Xylem Lab team following Day 2 presentations on YieldWatch and Xylem AutoPilot &mdash; Mövenpick Hotel, Nairobi
-    </div>
-  </div>
-
   <!-- ── QUICK NAV ── -->
   <div id="quicknav">
     <a href="#about" class="qnav-link">About</a>
@@ -1184,6 +1167,17 @@
 
   <!-- ── MAIN CONTENT ── -->
   <main id="content">
+
+    <!-- ── GROUP PHOTO ── -->
+    <div class="group-photo-banner">
+      <img src="assets/group_photo_day2.jpg" alt="Workshop participants and Xylem Lab team group photo, Nairobi 2026">
+      <div class="group-photo-caption">
+        <strong>RFBS Crop Yield Forecast Training &mdash; Nairobi, Kenya &mdash; March 2026</strong>
+        Participants and Xylem Lab team following Day 2 presentations on YieldWatch and Xylem AutoPilot &mdash; Mövenpick Hotel, Nairobi
+      </div>
+    </div>
+
+    <div class="divider"></div>
 
     <!-- ABOUT -->
     <section id="about" class="section">
