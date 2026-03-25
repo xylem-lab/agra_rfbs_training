@@ -873,9 +873,10 @@
       width: 100%;
       max-height: 520px;
       object-fit: cover;
-      object-position: center 30%;
+      object-position: center 60%;
       display: block;
       opacity: 0.92;
+      cursor: pointer;
     }
 
     .group-photo-caption {
@@ -1038,6 +1039,55 @@
         grid-template-columns: repeat(2, 1fr);
       }
     }
+
+    /* ── LIGHTBOX ── */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 1.5rem;
+      cursor: zoom-out;
+    }
+    #lightbox.open {
+      display: flex;
+    }
+    #lightbox img {
+      max-width: 92vw;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.7);
+      cursor: default;
+    }
+    #lightbox-caption {
+      color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      margin-top: 0.9rem;
+      opacity: 0.85;
+      text-align: center;
+      max-width: 600px;
+    }
+    #lightbox-close {
+      position: fixed;
+      top: 1.1rem;
+      right: 1.4rem;
+      color: #fff;
+      font-size: 2rem;
+      line-height: 1;
+      cursor: pointer;
+      background: none;
+      border: none;
+      opacity: 0.8;
+      font-family: sans-serif;
+    }
+    #lightbox-close:hover { opacity: 1; }
+    .gallery-item img { cursor: zoom-in; }
 
     /* ── FOOTER ── */
     #footer {
@@ -1814,6 +1864,80 @@
       &nbsp;&middot;&nbsp; University of Maryland
     </p>
   </footer>
+
+  <!-- ── LIGHTBOX ── -->
+  <div id="lightbox" role="dialog" aria-modal="true">
+    <button id="lightbox-close" aria-label="Close">&times;</button>
+    <img id="lightbox-img" src="" alt="">
+    <div id="lightbox-caption"></div>
+  </div>
+
+  <script>
+    (function () {
+      const lb       = document.getElementById('lightbox');
+      const lbImg    = document.getElementById('lightbox-img');
+      const lbCap    = document.getElementById('lightbox-caption');
+      const lbClose  = document.getElementById('lightbox-close');
+
+      function openLightbox(src, alt, caption) {
+        lbImg.src = src;
+        lbImg.alt = alt || '';
+        lbCap.textContent = caption || alt || '';
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lb.classList.remove('open');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      // Gallery items
+      document.querySelectorAll('.gallery-item').forEach(function (item) {
+        var img = item.querySelector('img');
+        var cap = item.querySelector('.gallery-item-caption');
+        if (!img) return;
+        item.style.cursor = 'zoom-in';
+        item.addEventListener('click', function () {
+          openLightbox(img.src, img.alt, cap ? cap.textContent : '');
+        });
+      });
+
+      // Group photo banner
+      var groupImg = document.querySelector('.group-photo-banner img');
+      var groupCap = document.querySelector('.group-photo-caption');
+      if (groupImg) {
+        groupImg.addEventListener('click', function () {
+          var capText = groupCap ? groupCap.textContent.trim() : '';
+          openLightbox(groupImg.src, groupImg.alt, capText);
+        });
+      }
+
+      // Certificates banner
+      var certItem = document.querySelector('.certificates-banner');
+      if (certItem) {
+        var certImg = certItem.querySelector('img');
+        var certCap = certItem.querySelector('.certificates-banner-caption');
+        if (certImg) {
+          certItem.style.cursor = 'zoom-in';
+          certItem.addEventListener('click', function () {
+            var capText = certCap ? certCap.textContent.trim() : '';
+            openLightbox(certImg.src, certImg.alt, capText);
+          });
+        }
+      }
+
+      // Close on button, backdrop click, or Escape key
+      lbClose.addEventListener('click', closeLightbox);
+      lb.addEventListener('click', function (e) {
+        if (e.target === lb) closeLightbox();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeLightbox();
+      });
+    })();
+  </script>
 
 </body>
 
